@@ -10,7 +10,6 @@
 @interface SWDrag2ShowMenu()<UIGestureRecognizerDelegate>
 @property(nonatomic) CGPoint touchBeginPoint;
 @property(nonatomic) CGFloat speedRation;
-@property(nonatomic, strong) UIView *touchView;
 @property(nonatomic) CGFloat currentPointX;
 
 
@@ -40,15 +39,13 @@ const NSInteger contentViewTag = 3001;
         _contentView.tag = contentViewTag;
         
         self.frame = _contentView.frame;
-        _touchView = [[UIView alloc] initWithFrame:self.frame];
-        _touchView.backgroundColor = [UIColor clearColor];
         [self addSubview:_contentView];
-       // [self addSubview:_touchView];
+       
         
         _tapGestureRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSideBar)];
         _tapGestureRec.delegate=self;
         [_contentView addGestureRecognizer:_tapGestureRec];
-       // _tapGestureRec.enabled = NO;
+      
         
         _panGestureRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveViewWithGesture:)];
         [_contentView addGestureRecognizer:_panGestureRec];
@@ -163,5 +160,9 @@ const NSInteger contentViewTag = 3001;
     _speedRation = _menuViewSlideInWidth / _menuViewWidth;
 }
 
+#pragma mark SWDrag2ShowMenu public method
+-(void) showSlideMenu
+{
+}
 
 @end
