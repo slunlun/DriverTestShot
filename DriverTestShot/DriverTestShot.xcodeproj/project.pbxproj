@@ -15,6 +15,7 @@
 		5EFA1A6F1B830F6A00047617 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA1A6E1B830F6A00047617 /* Images.xcassets */; };
 		5EFA1A721B830F6A00047617 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA1A701B830F6A00047617 /* LaunchScreen.xib */; };
 		5EFA1A7E1B830F6B00047617 /* DriverTestShotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A7D1B830F6B00047617 /* DriverTestShotTests.m */; };
+		5EFA1A8A1B83109900047617 /* SWDrag2ShowMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A891B83109900047617 /* SWDrag2ShowMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		5EFA1A771B830F6B00047617 /* DriverTestShotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DriverTestShotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EFA1A7C1B830F6B00047617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EFA1A7D1B830F6B00047617 /* DriverTestShotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriverTestShotTests.m; sourceTree = "<group>"; };
+		5EFA1A881B83109100047617 /* SWDrag2ShowMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDrag2ShowMenu.h; sourceTree = "<group>"; };
+		5EFA1A891B83109900047617 /* SWDrag2ShowMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDrag2ShowMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,7 @@
 		5EFA1A521B830F6A00047617 = {
 			isa = PBXGroup;
 			children = (
+				5EFA1A871B83106B00047617 /* Drag2ShowMenu */,
 				5EFA1A5D1B830F6A00047617 /* DriverTestShot */,
 				5EFA1A7A1B830F6B00047617 /* DriverTestShotTests */,
 				5EFA1A5C1B830F6A00047617 /* Products */,
@@ -120,6 +124,15 @@
 				5EFA1A7C1B830F6B00047617 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5EFA1A871B83106B00047617 /* Drag2ShowMenu */ = {
+			isa = PBXGroup;
+			children = (
+				5EFA1A891B83109900047617 /* SWDrag2ShowMenu.m */,
+				5EFA1A881B83109100047617 /* SWDrag2ShowMenu.h */,
+			);
+			name = Drag2ShowMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +239,7 @@
 				5EFA1A611B830F6A00047617 /* main.m in Sources */,
 				5EFA1A6A1B830F6A00047617 /* ViewController.m in Sources */,
 				5EFA1A671B830F6A00047617 /* DriverTestShot.xcdatamodeld in Sources */,
+				5EFA1A8A1B83109900047617 /* SWDrag2ShowMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
