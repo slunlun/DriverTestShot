@@ -18,6 +18,11 @@
     }
     
     cell.headImage.image = headImage;
+    cell.headImage.layer.cornerRadius = cell.headImage.frame.size.width / 2;
+    cell.headImage.clipsToBounds = YES;
+    cell.headImage.layer.borderWidth = 2;
+    cell.headImage.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    cell.userNameLabel.text = userName;
     return cell;
     
 }
@@ -30,6 +35,16 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)drawRect:(CGRect)rect
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+        
+    //draw the bottom seperator line
+    CGContextSetStrokeColorWithColor(context, [UIColor lightGrayColor].CGColor);
+    CGContextStrokeRect(context, CGRectMake(30, rect.size.height, rect.size.width - 60, 1));
+    
 }
 
 @end

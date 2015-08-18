@@ -61,7 +61,8 @@ static NSString *cellIdentify = @"MyCellIdentify";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        UserInfoTableViewCell *cell = [UserInfoTableViewCell initWithTableView:tableView userInfoCellWithUserName:@"slunlun" userHeadImage:[UIImage imageNamed:@"MyHead.jpg"]];
+        UserInfoTableViewCell *cell = [UserInfoTableViewCell initWithTableView:tableView userInfoCellWithUserName:@"时滕" userHeadImage:[UIImage imageNamed:@"MyHead.jpg"]];
+        cell.imageView.center = cell.center;
         return cell;
     }
     static NSString *normalCellIdentify = @"NormalListCellIdentify";
@@ -70,6 +71,7 @@ static NSString *cellIdentify = @"MyCellIdentify";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:normalCellIdentify];
     }
     cell.textLabel.text = @"Test 1";
+    cell.imageView.image = [UIImage imageNamed:@"classTwo.png"];
     return cell;
 }
 
