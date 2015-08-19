@@ -11,6 +11,7 @@
 @interface UserInfoTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 
 +(instancetype) initWithTableView:(UITableView *)tableView userInfoCellWithUserName:(NSString *) userName userHeadImage:(UIImage *) headImage;
 @end
