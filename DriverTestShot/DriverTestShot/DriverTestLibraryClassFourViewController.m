@@ -10,6 +10,7 @@
 
 #import "FlowLayoutForPageTest.h"
 #import "WaterFallUICollectionViewCell.h"
+#import "DriverTestQuestionsViewController.h"
 
 static NSString *CELL_IDENTITY = @"cellIdentify";
 
@@ -76,6 +77,10 @@ static NSString *CELL_IDENTITY = @"cellIdentify";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"Now select %@", indexPath);
+    if ([self.delegate respondsToSelector:@selector(DriverTestView:shouldShowViewController:)]) {
+        DriverTestQuestionsViewController *vc = [[DriverTestQuestionsViewController alloc] init];
+        [self.delegate DriverTestView:self shouldShowViewController:vc];
+    }
 }
 
 @end

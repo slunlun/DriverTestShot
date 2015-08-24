@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DriverTestViewDelegate.h"
 @interface DriverTestLibraryClassOneViewController : UIViewController
-
+@property(nonatomic, weak) id<DriverTestViewProtocal> delegate;
 @end

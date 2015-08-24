@@ -13,14 +13,23 @@
 #import "DriverTestLibraryClassFourViewController.h"
 #import "DriverTestTabBarController.h"
 #import "DriverTestLibNavigationViewController.h"
+#import "DriverTestViewDelegate.h"
 
-#import "ClassOneView.h"
 
-@interface DriverTestMainViewController ()<UITableViewDataSource, UITableViewDelegate>
+
+@interface DriverTestMainViewController ()<UITableViewDataSource, UITableViewDelegate, DriverTestViewProtocal>
 @property(nonatomic, strong) UITableView *slideTableViewMenu;
-@property(nonatomic, strong) DriverTestLibraryClassOneViewController *classOneVC;
-@property(nonatomic, strong) DriverTestTabBarController *mainTabBarController;
+
+// subview
 @property(nonatomic, strong) SWDrag2ShowMenu *drag2ShowMenu;
+// tabbar
+@property(nonatomic, strong) DriverTestTabBarController *mainTabBarController;
+// tab 1 : Driver Test
+@property(nonatomic, strong) DriverTestLibraryClassOneViewController *classOneVC;
+@property(nonatomic, strong) DriverTestLibraryClassFourViewController *classFourVC;
+@property(nonatomic, strong) DriverTestLibNavigationViewController *driverTestNavigationVC;
+
+
 @end
 
 static NSString *cellIdentify = @"MyCellIdentify";
@@ -33,6 +42,17 @@ static NSString *cellIdentify = @"MyCellIdentify";
     
     
     _mainTabBarController = [stroyBoard instantiateViewControllerWithIdentifier:@"DRIVER_TEST_BAR_CONTROLLER"];
+    _driverTestNavigationVC = (DriverTestLibNavigationViewController*)_mainTabBarController.viewControllers[0];
+    
+    _classOneVC = [[DriverTestLibraryClassOneViewController alloc] init];
+    _classOneVC.delegate = self;
+    _classFourVC = [[DriverTestLibraryClassFourViewController alloc] init];
+    _classFourVC.delegate = self;
+    
+    // set class One as default
+    NSArray *vcArray = [[NSArray alloc] initWithObjects:_classOneVC, nil];
+    _driverTestNavigationVC.viewControllers = vcArray;
+    
     
     _slideTableViewMenu = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width/5*4, self.view.frame.size.height)];
     _slideTableViewMenu.delegate = self;
@@ -91,34 +111,36 @@ static NSString *cellIdentify = @"MyCellIdentify";
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     return cell.frame.size.height;
 }
+#pragma mark DriverTestViewProtocal
+-(void) DriverTestView:(UIViewController *) driverTestView shouldShowViewController:(UIViewController *) viewController
+{
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 
 #pragma mark tableview delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.drag2ShowMenu closeSideBar];
-    
+    self.slideTableViewMenu.scrollsToTop = YES;
+    NSIndexPath* indexPathZero = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.slideTableViewMenu scrollToRowAtIndexPath:indexPathZero atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    [self.slideTableViewMenu deselectRowAtIndexPath:indexPath animated:YES];
+
     
     if (indexPath.section == 1) {
-        
+        self.mainTabBarController.selectedIndex = 0;
         switch (indexPath.row) {
             case 0:  //科目一
             {
-                self.mainTabBarController.selectedIndex = 0;
                 DriverTestLibNavigationViewController *nav = self.mainTabBarController.viewControllers[0];
-                UIStoryboard *stroyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                DriverTestLibraryClassOneViewController *testOneVC = [stroyBoard instantiateViewControllerWithIdentifier:@"TEST_ONE_VC"];
-                NSArray *vcArray = [[NSArray alloc] initWithObjects:testOneVC, nil];
+                NSArray *vcArray = [[NSArray alloc] initWithObjects:self.classOneVC, nil];
                 nav.viewControllers = vcArray;
-                
             }
                 break;
             case 1:  //科目四
             {
-                self.mainTabBarController.selectedIndex = 0;
                 DriverTestLibNavigationViewController *nav = self.mainTabBarController.viewControllers[0];
-                UIStoryboard *stroyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                DriverTestLibraryClassFourViewController *testFourVC = [stroyBoard instantiateViewControllerWithIdentifier:@"TEST_FOUR_VC"];
-                NSArray *vcArray = [[NSArray alloc] initWithObjects:testFourVC, nil];
+                NSArray *vcArray = [[NSArray alloc] initWithObjects:self.classFourVC, nil];
                 nav.viewControllers = vcArray;
             }
                 break;
