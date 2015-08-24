@@ -9,12 +9,17 @@
 #import "DriverTestMainViewController.h"
 #import "SWDrag2ShowMenu.h"
 #import "UserInfoTableViewCell.h"
+#import "DriverTestLibraryClassOneViewController.h"
+#import "DriverTestLibraryClassFourViewController.h"
+#import "DriverTestTabBarController.h"
+#import "DriverTestLibNavigationViewController.h"
 
 #import "ClassOneView.h"
 
 @interface DriverTestMainViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong) UITableView *slideTableViewMenu;
-@property(nonatomic, strong) ClassOneView *contentView;
+@property(nonatomic, strong) DriverTestLibraryClassOneViewController *classOneVC;
+@property(nonatomic, strong) DriverTestTabBarController *mainTabBarController;
 @property(nonatomic, strong) SWDrag2ShowMenu *drag2ShowMenu;
 @end
 
@@ -23,18 +28,23 @@ static NSString *cellIdentify = @"MyCellIdentify";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _contentView = [[ClassOneView alloc] initWithFrame:self.view.frame];
-    _contentView.backgroundColor = [UIColor yellowColor];
+    // init tab bar
+    UIStoryboard *stroyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
+    
+    _mainTabBarController = [stroyBoard instantiateViewControllerWithIdentifier:@"DRIVER_TEST_BAR_CONTROLLER"];
     
     _slideTableViewMenu = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width/5*4, self.view.frame.size.height)];
     _slideTableViewMenu.delegate = self;
     _slideTableViewMenu.dataSource = self;
     _slideTableViewMenu.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    _drag2ShowMenu = [[SWDrag2ShowMenu alloc] initWithContentView:_contentView];
+    _drag2ShowMenu = [[SWDrag2ShowMenu alloc] initWithContentView:_mainTabBarController.view];
     _drag2ShowMenu.menuContentView = _slideTableViewMenu;
     [self.view addSubview:_drag2ShowMenu];
+    
+    // 
+    self.navigationController.navigationBarHidden = YES;
 
 }
 
@@ -80,5 +90,41 @@ static NSString *cellIdentify = @"MyCellIdentify";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     return cell.frame.size.height;
+}
+
+#pragma mark tableview delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.drag2ShowMenu closeSideBar];
+    
+    
+    if (indexPath.section == 1) {
+        
+        switch (indexPath.row) {
+            case 0:  //科目一
+            {
+                self.mainTabBarController.selectedIndex = 0;
+                DriverTestLibNavigationViewController *nav = self.mainTabBarController.viewControllers[0];
+                UIStoryboard *stroyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                DriverTestLibraryClassOneViewController *testOneVC = [stroyBoard instantiateViewControllerWithIdentifier:@"TEST_ONE_VC"];
+                NSArray *vcArray = [[NSArray alloc] initWithObjects:testOneVC, nil];
+                nav.viewControllers = vcArray;
+                
+            }
+                break;
+            case 1:  //科目四
+            {
+                self.mainTabBarController.selectedIndex = 0;
+                DriverTestLibNavigationViewController *nav = self.mainTabBarController.viewControllers[0];
+                UIStoryboard *stroyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                DriverTestLibraryClassFourViewController *testFourVC = [stroyBoard instantiateViewControllerWithIdentifier:@"TEST_FOUR_VC"];
+                NSArray *vcArray = [[NSArray alloc] initWithObjects:testFourVC, nil];
+                nav.viewControllers = vcArray;
+            }
+                break;
+            default:
+                break;
+        }
+    }
 }
 @end
