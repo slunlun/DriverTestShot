@@ -11,7 +11,7 @@
 @property(nonatomic) CGPoint touchBeginPoint;
 @property(nonatomic) CGFloat speedRation;
 @property(nonatomic) CGFloat currentPointX;
-
+@property(nonatomic) BOOL slideMenuShown;
 
 
 @property(nonatomic, strong) UITapGestureRecognizer *tapGestureRec;
@@ -59,13 +59,21 @@ const NSInteger contentViewTag = 3001;
 
         
     }
-    
     return self;
 }
+
 #pragma mark GestureRect
 - (void) closeSideBar
 {
     NSLog(@"Close Slide Bar");
+    CGRect contentViewToFrame = CGRectMake(0, _contentView.frame.origin.y, _contentView.frame.size.width, _contentView.frame.size.height);
+    CGRect slideMenuViewToFrame = CGRectMake(-self.menuViewSlideInWidth, _menuContentView.frame.origin.y, _menuContentView.frame.size.width, _menuContentView.frame.size.height);
+    [UIView animateWithDuration:0.3 animations:^{
+        [_contentView setFrame:contentViewToFrame];
+        [_menuContentView setFrame:slideMenuViewToFrame];
+    } completion:^(BOOL finished) {
+        _slideMenuShown = NO;
+    }];
 }
 - (void)moveViewWithGesture:(UIPanGestureRecognizer *)panGes
 {
@@ -102,21 +110,17 @@ const NSInteger contentViewTag = 3001;
         {
             CGRect contentViewToFrame = CGRectMake(self.menuViewWidth, _contentView.frame.origin.y, _contentView.frame.size.width, _contentView.frame.size.height);
             CGRect slideMenuViewToFrame = CGRectMake(0, _menuContentView.frame.origin.y, _menuContentView.frame.size.width, _menuContentView.frame.size.height);
-    
+            // 拖拽超过屏幕1/3，显示侧栏
             [UIView animateWithDuration:0.3 animations:^{
                 [_contentView setFrame:contentViewToFrame];
                 [_menuContentView setFrame:slideMenuViewToFrame];
+            } completion:^(BOOL finished) {
+                _slideMenuShown = YES;
             }];
     
         }else
         {
-            CGRect contentViewToFrame = CGRectMake(0, _contentView.frame.origin.y, _contentView.frame.size.width, _contentView.frame.size.height);
-            CGRect slideMenuViewToFrame = CGRectMake(-self.menuViewSlideInWidth, _menuContentView.frame.origin.y, _menuContentView.frame.size.width, _menuContentView.frame.size.height);
-            [UIView animateWithDuration:0.3 animations:^{
-                [_contentView setFrame:contentViewToFrame];
-                [_menuContentView setFrame:slideMenuViewToFrame];
-            }];
-            
+            [self closeSideBar];
         }
 
     }
@@ -165,4 +169,14 @@ const NSInteger contentViewTag = 3001;
 {
 }
 
+#pragma mark UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if (self.slideMenuShown) {
+        return YES;
+    }else
+    {
+        return NO;
+    }
+}
 @end

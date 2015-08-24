@@ -10,7 +10,7 @@
 		5EFA1A611B830F6A00047617 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A601B830F6A00047617 /* main.m */; };
 		5EFA1A641B830F6A00047617 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A631B830F6A00047617 /* AppDelegate.m */; };
 		5EFA1A671B830F6A00047617 /* DriverTestShot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A651B830F6A00047617 /* DriverTestShot.xcdatamodeld */; };
-		5EFA1A6A1B830F6A00047617 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A691B830F6A00047617 /* ViewController.m */; };
+		5EFA1A6A1B830F6A00047617 /* DriverTestMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A691B830F6A00047617 /* DriverTestMainViewController.m */; };
 		5EFA1A6D1B830F6A00047617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA1A6B1B830F6A00047617 /* Main.storyboard */; };
 		5EFA1A6F1B830F6A00047617 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA1A6E1B830F6A00047617 /* Images.xcassets */; };
 		5EFA1A721B830F6A00047617 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA1A701B830F6A00047617 /* LaunchScreen.xib */; };
@@ -22,6 +22,9 @@
 		5EFA1A9D1B83336A00047617 /* MyHead.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA1A9C1B83336A00047617 /* MyHead.jpg */; };
 		8032268C1B83819700A01A67 /* classOne.png in Resources */ = {isa = PBXBuildFile; fileRef = 8032268B1B83819700A01A67 /* classOne.png */; };
 		8032268E1B8381B100A01A67 /* classTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8032268D1B8381B100A01A67 /* classTwo.png */; };
+		804F10311B89C48C009D9803 /* ClassOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 804F10301B89C48C009D9803 /* ClassOneView.m */; };
+		804F10351B89C835009D9803 /* FlowLayoutForPageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 804F10341B89C835009D9803 /* FlowLayoutForPageTest.m */; };
+		804F103B1B89CA52009D9803 /* WaterFallUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 804F103A1B89CA52009D9803 /* WaterFallUICollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +44,8 @@
 		5EFA1A621B830F6A00047617 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5EFA1A631B830F6A00047617 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5EFA1A661B830F6A00047617 /* DriverTestShot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DriverTestShot.xcdatamodel; sourceTree = "<group>"; };
-		5EFA1A681B830F6A00047617 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5EFA1A691B830F6A00047617 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5EFA1A681B830F6A00047617 /* DriverTestMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriverTestMainViewController.h; sourceTree = "<group>"; };
+		5EFA1A691B830F6A00047617 /* DriverTestMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriverTestMainViewController.m; sourceTree = "<group>"; };
 		5EFA1A6C1B830F6A00047617 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5EFA1A6E1B830F6A00047617 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5EFA1A711B830F6A00047617 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -59,6 +62,12 @@
 		5EFA1A9C1B83336A00047617 /* MyHead.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MyHead.jpg; sourceTree = "<group>"; };
 		8032268B1B83819700A01A67 /* classOne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classOne.png; sourceTree = "<group>"; };
 		8032268D1B8381B100A01A67 /* classTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classTwo.png; sourceTree = "<group>"; };
+		804F102F1B89C48C009D9803 /* ClassOneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassOneView.h; sourceTree = "<group>"; };
+		804F10301B89C48C009D9803 /* ClassOneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassOneView.m; sourceTree = "<group>"; };
+		804F10331B89C82E009D9803 /* FlowLayoutForPageTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowLayoutForPageTest.h; sourceTree = "<group>"; };
+		804F10341B89C835009D9803 /* FlowLayoutForPageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowLayoutForPageTest.m; sourceTree = "<group>"; };
+		804F10391B89CA4A009D9803 /* WaterFallUICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFallUICollectionViewCell.h; sourceTree = "<group>"; };
+		804F103A1B89CA52009D9803 /* WaterFallUICollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFallUICollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +91,7 @@
 		5EFA1A521B830F6A00047617 = {
 			isa = PBXGroup;
 			children = (
+				804F10321B89C81E009D9803 /* LayOut */,
 				8032268D1B8381B100A01A67 /* classTwo.png */,
 				8032268B1B83819700A01A67 /* classOne.png */,
 				5EFA1A9C1B83336A00047617 /* MyHead.jpg */,
@@ -107,8 +117,8 @@
 				5EFA1A941B83284500047617 /* SlideTableViewCellContentView */,
 				5EFA1A621B830F6A00047617 /* AppDelegate.h */,
 				5EFA1A631B830F6A00047617 /* AppDelegate.m */,
-				5EFA1A681B830F6A00047617 /* ViewController.h */,
-				5EFA1A691B830F6A00047617 /* ViewController.m */,
+				5EFA1A681B830F6A00047617 /* DriverTestMainViewController.h */,
+				5EFA1A691B830F6A00047617 /* DriverTestMainViewController.m */,
 				5EFA1A6B1B830F6A00047617 /* Main.storyboard */,
 				5EFA1A6E1B830F6A00047617 /* Images.xcassets */,
 				5EFA1A701B830F6A00047617 /* LaunchScreen.xib */,
@@ -116,6 +126,8 @@
 				5EFA1A5E1B830F6A00047617 /* Supporting Files */,
 				5EFA1A8C1B831B0900047617 /* SlideMenuTableView.h */,
 				5EFA1A8D1B831B0900047617 /* SlideMenuTableView.m */,
+				804F102F1B89C48C009D9803 /* ClassOneView.h */,
+				804F10301B89C48C009D9803 /* ClassOneView.m */,
 			);
 			path = DriverTestShot;
 			sourceTree = "<group>";
@@ -163,6 +175,17 @@
 				5EFA1A991B832D0100047617 /* UserInfoTableViewCell.xib */,
 			);
 			name = SlideTableViewCellContentView;
+			sourceTree = "<group>";
+		};
+		804F10321B89C81E009D9803 /* LayOut */ = {
+			isa = PBXGroup;
+			children = (
+				804F103A1B89CA52009D9803 /* WaterFallUICollectionViewCell.m */,
+				804F10391B89CA4A009D9803 /* WaterFallUICollectionViewCell.h */,
+				804F10341B89C835009D9803 /* FlowLayoutForPageTest.m */,
+				804F10331B89C82E009D9803 /* FlowLayoutForPageTest.h */,
+			);
+			name = LayOut;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,13 +292,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				804F10311B89C48C009D9803 /* ClassOneView.m in Sources */,
 				5EFA1A641B830F6A00047617 /* AppDelegate.m in Sources */,
 				5EFA1A611B830F6A00047617 /* main.m in Sources */,
-				5EFA1A6A1B830F6A00047617 /* ViewController.m in Sources */,
+				5EFA1A6A1B830F6A00047617 /* DriverTestMainViewController.m in Sources */,
 				5EFA1A671B830F6A00047617 /* DriverTestShot.xcdatamodeld in Sources */,
 				5EFA1A8E1B831B0900047617 /* SlideMenuTableView.m in Sources */,
 				5EFA1A9A1B832D0100047617 /* UserInfoTableViewCell.m in Sources */,
+				804F10351B89C835009D9803 /* FlowLayoutForPageTest.m in Sources */,
 				5EFA1A8A1B83109900047617 /* SWDrag2ShowMenu.m in Sources */,
+				804F103B1B89CA52009D9803 /* WaterFallUICollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

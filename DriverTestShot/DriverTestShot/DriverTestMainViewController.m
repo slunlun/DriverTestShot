@@ -6,22 +6,24 @@
 //  Copyright (c) 2015 Eren. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DriverTestMainViewController.h"
 #import "SWDrag2ShowMenu.h"
 #import "UserInfoTableViewCell.h"
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
+#import "ClassOneView.h"
+
+@interface DriverTestMainViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong) UITableView *slideTableViewMenu;
-@property(nonatomic, strong) UIView *contentView;
+@property(nonatomic, strong) ClassOneView *contentView;
 @property(nonatomic, strong) SWDrag2ShowMenu *drag2ShowMenu;
 @end
 
 static NSString *cellIdentify = @"MyCellIdentify";
-@implementation ViewController
+@implementation DriverTestMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _contentView = [[UIView alloc] initWithFrame:self.view.frame];
+    _contentView = [[ClassOneView alloc] initWithFrame:self.view.frame];
     _contentView.backgroundColor = [UIColor yellowColor];
     
     
