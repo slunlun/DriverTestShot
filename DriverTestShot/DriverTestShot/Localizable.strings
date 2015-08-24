@@ -1,0 +1,14 @@
+/* 
+  DriverTestStrings.strings
+  DriverTestShot
+
+  Created by EShi on 8/24/15.
+  Copyright (c) 2015 Eren. All rights reserved.
+*/
+
+// SlideTableViewTitle
+"CLASS_ONE" = "科目一";
+"CLASS_FOUR" = "科目四";
+"SETTING" = "设置";
+"DRIVER_TEST" = "驾照考试";
+"DRIVER_APPLY" = "报考驾校";

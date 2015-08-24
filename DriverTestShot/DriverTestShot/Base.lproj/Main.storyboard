@@ -40,23 +40,6 @@
             </objects>
             <point key="canvasLocation" x="78" y="-1552"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="Asm-RI-JRq">
-            <objects>
-                <navigationController id="KXg-MB-psB" customClass="DriverTestLibNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Bz3-KU-Wsr"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V2x-QF-Z9z">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="jTy-0s-Kgm" kind="relationship" relationship="rootViewController" id="naH-ha-twX"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V0J-rZ-1ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1451" y="-1867"/>
-        </scene>
         <!--ItemOrder-->
         <scene sceneID="BAK-0T-jla">
             <objects>
@@ -76,7 +59,7 @@
             </objects>
             <point key="canvasLocation" x="1488" y="-1196"/>
         </scene>
-        <!--Driver Test Library Class One View Controller-->
+        <!--Item-->
         <scene sceneID="Yjs-m7-k67">
             <objects>
                 <viewController storyboardIdentifier="TEST_ONE_VC" id="jTy-0s-Kgm" customClass="DriverTestLibraryClassOneViewController" sceneMemberID="viewController">
@@ -89,11 +72,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="gZs-L1-d5X"/>
                     <navigationItem key="navigationItem" id="b27-R7-lmY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntH-e7-7Ik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2156" y="-2199"/>
+            <point key="canvasLocation" x="1751" y="-2347"/>
         </scene>
         <!--Driver Test Library Class Four View Controller-->
         <scene sceneID="gdO-sx-gWc">
@@ -124,7 +108,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="KXg-MB-psB" kind="relationship" relationship="viewControllers" id="E7M-SO-m26"/>
+                        <segue destination="jTy-0s-Kgm" kind="relationship" relationship="viewControllers" id="iJB-B5-rTE"/>
                         <segue destination="bvf-1Y-uu9" kind="relationship" relationship="viewControllers" id="Yt8-4e-Tim"/>
                     </connections>
                 </tabBarController>

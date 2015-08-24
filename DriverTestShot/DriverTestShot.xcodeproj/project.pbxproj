@@ -12,6 +12,8 @@
 		5E5002B61B8AC1F3004517FD /* DriverTestLibNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5002B51B8AC1F3004517FD /* DriverTestLibNavigationViewController.m */; };
 		5E5002B91B8AED53004517FD /* DriverTestTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5002B81B8AED53004517FD /* DriverTestTabBarController.m */; };
 		5E5002BD1B8B0997004517FD /* DriverTestQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5002BC1B8B0997004517FD /* DriverTestQuestionsViewController.m */; };
+		5E5002C21B8B15C3004517FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E5002C11B8B15C3004517FD /* Localizable.strings */; };
+		5E5002C51B8B2277004517FD /* DriverApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5002C41B8B2277004517FD /* DriverApplyViewController.m */; };
 		5EFA1A611B830F6A00047617 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A601B830F6A00047617 /* main.m */; };
 		5EFA1A641B830F6A00047617 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A631B830F6A00047617 /* AppDelegate.m */; };
 		5EFA1A671B830F6A00047617 /* DriverTestShot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A651B830F6A00047617 /* DriverTestShot.xcdatamodeld */; };
@@ -26,7 +28,7 @@
 		5EFA1A9B1B832D0100047617 /* UserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA1A991B832D0100047617 /* UserInfoTableViewCell.xib */; };
 		5EFA1A9D1B83336A00047617 /* MyHead.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA1A9C1B83336A00047617 /* MyHead.jpg */; };
 		8032268C1B83819700A01A67 /* classOne.png in Resources */ = {isa = PBXBuildFile; fileRef = 8032268B1B83819700A01A67 /* classOne.png */; };
-		8032268E1B8381B100A01A67 /* classTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8032268D1B8381B100A01A67 /* classTwo.png */; };
+		8032268E1B8381B100A01A67 /* classFour.png in Resources */ = {isa = PBXBuildFile; fileRef = 8032268D1B8381B100A01A67 /* classFour.png */; };
 		804F10351B89C835009D9803 /* FlowLayoutForPageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 804F10341B89C835009D9803 /* FlowLayoutForPageTest.m */; };
 		804F103B1B89CA52009D9803 /* WaterFallUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 804F103A1B89CA52009D9803 /* WaterFallUICollectionViewCell.m */; };
 /* End PBXBuildFile section */
@@ -53,6 +55,9 @@
 		5E5002BA1B8B0627004517FD /* DriverTestViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverTestViewDelegate.h; sourceTree = "<group>"; };
 		5E5002BB1B8B0997004517FD /* DriverTestQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverTestQuestionsViewController.h; sourceTree = "<group>"; };
 		5E5002BC1B8B0997004517FD /* DriverTestQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverTestQuestionsViewController.m; sourceTree = "<group>"; };
+		5E5002C11B8B15C3004517FD /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		5E5002C31B8B2277004517FD /* DriverApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverApplyViewController.h; sourceTree = "<group>"; };
+		5E5002C41B8B2277004517FD /* DriverApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverApplyViewController.m; sourceTree = "<group>"; };
 		5EFA1A5B1B830F6A00047617 /* DriverTestShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriverTestShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EFA1A5F1B830F6A00047617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EFA1A601B830F6A00047617 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,7 +81,7 @@
 		5EFA1A991B832D0100047617 /* UserInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoTableViewCell.xib; sourceTree = "<group>"; };
 		5EFA1A9C1B83336A00047617 /* MyHead.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MyHead.jpg; sourceTree = "<group>"; };
 		8032268B1B83819700A01A67 /* classOne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classOne.png; sourceTree = "<group>"; };
-		8032268D1B8381B100A01A67 /* classTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classTwo.png; sourceTree = "<group>"; };
+		8032268D1B8381B100A01A67 /* classFour.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classFour.png; sourceTree = "<group>"; };
 		804F10331B89C82E009D9803 /* FlowLayoutForPageTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowLayoutForPageTest.h; sourceTree = "<group>"; };
 		804F10341B89C835009D9803 /* FlowLayoutForPageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowLayoutForPageTest.m; sourceTree = "<group>"; };
 		804F10391B89CA4A009D9803 /* WaterFallUICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFallUICollectionViewCell.h; sourceTree = "<group>"; };
@@ -124,11 +129,18 @@
 			name = DriverTestQuestions;
 			sourceTree = "<group>";
 		};
+		5E5002C01B8B11AA004517FD /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UserInfo;
+			sourceTree = "<group>";
+		};
 		5EFA1A521B830F6A00047617 = {
 			isa = PBXGroup;
 			children = (
 				804F10321B89C81E009D9803 /* LayOut */,
-				8032268D1B8381B100A01A67 /* classTwo.png */,
+				8032268D1B8381B100A01A67 /* classFour.png */,
 				8032268B1B83819700A01A67 /* classOne.png */,
 				5EFA1A9C1B83336A00047617 /* MyHead.jpg */,
 				5EFA1A871B83106B00047617 /* Drag2ShowMenu */,
@@ -150,6 +162,7 @@
 		5EFA1A5D1B830F6A00047617 /* DriverTestShot */ = {
 			isa = PBXGroup;
 			children = (
+				5E5002C01B8B11AA004517FD /* UserInfo */,
 				5E5002BF1B8B10E9004517FD /* DriverTestQuestions */,
 				5E5002BE1B8B106A004517FD /* DriverTestTab */,
 				5EFA1A941B83284500047617 /* SlideTableViewCellContentView */,
@@ -166,6 +179,9 @@
 				5EFA1A8D1B831B0900047617 /* SlideMenuTableView.m */,
 				5E5002B71B8AED53004517FD /* DriverTestTabBarController.h */,
 				5E5002B81B8AED53004517FD /* DriverTestTabBarController.m */,
+				5E5002C11B8B15C3004517FD /* Localizable.strings */,
+				5E5002C31B8B2277004517FD /* DriverApplyViewController.h */,
+				5E5002C41B8B2277004517FD /* DriverApplyViewController.m */,
 			);
 			path = DriverTestShot;
 			sourceTree = "<group>";
@@ -312,7 +328,8 @@
 				5EFA1A6F1B830F6A00047617 /* Images.xcassets in Resources */,
 				5EFA1A9D1B83336A00047617 /* MyHead.jpg in Resources */,
 				8032268C1B83819700A01A67 /* classOne.png in Resources */,
-				8032268E1B8381B100A01A67 /* classTwo.png in Resources */,
+				8032268E1B8381B100A01A67 /* classFour.png in Resources */,
+				5E5002C21B8B15C3004517FD /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +354,7 @@
 				5EFA1A611B830F6A00047617 /* main.m in Sources */,
 				5EFA1A6A1B830F6A00047617 /* DriverTestMainViewController.m in Sources */,
 				5EFA1A671B830F6A00047617 /* DriverTestShot.xcdatamodeld in Sources */,
+				5E5002C51B8B2277004517FD /* DriverApplyViewController.m in Sources */,
 				5EFA1A8E1B831B0900047617 /* SlideMenuTableView.m in Sources */,
 				5EFA1A9A1B832D0100047617 /* UserInfoTableViewCell.m in Sources */,
 				5E5002B31B8ABF18004517FD /* DriverTestLibraryClassFourViewController.m in Sources */,

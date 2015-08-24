@@ -32,6 +32,10 @@ static NSString *CELL_IDENTITY = @"cellIdentify";
     _collectionView.backgroundColor = [UIColor lightGrayColor];
     [_collectionView registerClass:[WaterFallUICollectionViewCell class] forCellWithReuseIdentifier:CELL_IDENTITY];
     [self.view addSubview:_collectionView];
+    
+    // INIT NavigationBar
+    self.navigationController.title = NSLocalizedString(@"CLASS_ONE", nil);
+    self.navigationController.navigationBarHidden = NO;
 
 }
 

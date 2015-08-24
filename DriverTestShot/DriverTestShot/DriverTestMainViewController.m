@@ -14,8 +14,12 @@
 #import "DriverTestTabBarController.h"
 #import "DriverTestLibNavigationViewController.h"
 #import "DriverTestViewDelegate.h"
+#import "DriverApplyViewController.h"
 
-
+#define USER_INFO_SECTION_NUM 0
+#define DRIVER_TEST_SECTION_NUM 1
+#define CLASS_ONE_CELL_ROW 0
+#define CLASS_FOUR_CELL_ROW 1
 
 @interface DriverTestMainViewController ()<UITableViewDataSource, UITableViewDelegate, DriverTestViewProtocal>
 @property(nonatomic, strong) UITableView *slideTableViewMenu;
@@ -27,7 +31,9 @@
 // tab 1 : Driver Test
 @property(nonatomic, strong) DriverTestLibraryClassOneViewController *classOneVC;
 @property(nonatomic, strong) DriverTestLibraryClassFourViewController *classFourVC;
-@property(nonatomic, strong) DriverTestLibNavigationViewController *driverTestNavigationVC;
+// tab 2:Driver Apply
+@property(nonatomic, strong) DriverApplyViewController *driverApplyVC;
+
 
 
 @end
@@ -38,20 +44,28 @@ static NSString *cellIdentify = @"MyCellIdentify";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // init tab bar
-    UIStoryboard *stroyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    
-    _mainTabBarController = [stroyBoard instantiateViewControllerWithIdentifier:@"DRIVER_TEST_BAR_CONTROLLER"];
-    _driverTestNavigationVC = (DriverTestLibNavigationViewController*)_mainTabBarController.viewControllers[0];
+    _mainTabBarController = [[DriverTestTabBarController alloc] init];
     
     _classOneVC = [[DriverTestLibraryClassOneViewController alloc] init];
     _classOneVC.delegate = self;
     _classFourVC = [[DriverTestLibraryClassFourViewController alloc] init];
     _classFourVC.delegate = self;
     
-    // set class One as default
-    NSArray *vcArray = [[NSArray alloc] initWithObjects:_classOneVC, nil];
-    _driverTestNavigationVC.viewControllers = vcArray;
+    _driverApplyVC = [[DriverApplyViewController alloc] init];
+    
+    NSArray *tabBarArray = [[NSArray alloc] initWithObjects:_classOneVC, _driverApplyVC, nil];
+    _mainTabBarController.viewControllers = tabBarArray;
+    UITabBar *tabBar = _mainTabBarController.tabBar;
+    UITabBarItem *itemFile = [tabBar.items objectAtIndex:0];
+    itemFile.title = NSLocalizedString(@"DRIVER_TEST", NULL);
+    itemFile.image = [UIImage imageNamed:@"DriverCard"];
+    itemFile.selectedImage = [UIImage imageNamed:@"DirverCardSEL"];
+    
+    UITabBarItem *itemAccount = [tabBar.items objectAtIndex:1];
+    itemAccount.title = NSLocalizedString(@"DRIVER_APPLY", NULL);
+    itemAccount.image = [UIImage imageNamed:@"Drive"];
+    itemAccount.selectedImage = [UIImage imageNamed:@"DriveSEL"];
+    
     
     
     _slideTableViewMenu = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width/5*4, self.view.frame.size.height)];
@@ -76,7 +90,7 @@ static NSString *cellIdentify = @"MyCellIdentify";
 #pragma mark UITableView Data Source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
+    if (section == USER_INFO_SECTION_NUM) {
         return 1;
     }else
     {
@@ -92,19 +106,38 @@ static NSString *cellIdentify = @"MyCellIdentify";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
+    // UserInfo section
+    if (indexPath.section == USER_INFO_SECTION_NUM) {
         UserInfoTableViewCell *cell = [UserInfoTableViewCell initWithTableView:tableView userInfoCellWithUserName:@"时滕" userHeadImage:[UIImage imageNamed:@"MyHead.jpg"]];
         cell.imageView.center = cell.center;
         return cell;
     }
-    static NSString *normalCellIdentify = @"NormalListCellIdentify";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentify];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:normalCellIdentify];
+    
+    // DriverTest section
+    if (indexPath.section == DRIVER_TEST_SECTION_NUM) {
+        static NSString *normalCellIdentify = @"NormalListCellIdentify";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentify];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:normalCellIdentify];
+        }
+        switch (indexPath.row) {
+            case CLASS_ONE_CELL_ROW: //科目一
+            {
+                cell.textLabel.text = NSLocalizedString(@"CLASS_ONE", nil);
+                cell.imageView.image = [UIImage imageNamed:@"classOne.png"];
+
+            }
+                break;
+            case CLASS_FOUR_CELL_ROW: //科目四
+            {
+                cell.textLabel.text = NSLocalizedString(@"CLASS_FOUR", nil);
+                cell.imageView.image = [UIImage imageNamed:@"classFour.png"];
+            }
+                break;
+        }
+        return cell;
     }
-    cell.textLabel.text = @"Test 1";
-    cell.imageView.image = [UIImage imageNamed:@"classTwo.png"];
-    return cell;
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -127,21 +160,25 @@ static NSString *cellIdentify = @"MyCellIdentify";
     [self.slideTableViewMenu deselectRowAtIndexPath:indexPath animated:YES];
 
     
-    if (indexPath.section == 1) {
+    if (indexPath.section == DRIVER_TEST_SECTION_NUM) {
         self.mainTabBarController.selectedIndex = 0;
         switch (indexPath.row) {
-            case 0:  //科目一
+            case CLASS_ONE_CELL_ROW:  //科目一
             {
-                DriverTestLibNavigationViewController *nav = self.mainTabBarController.viewControllers[0];
-                NSArray *vcArray = [[NSArray alloc] initWithObjects:self.classOneVC, nil];
-                nav.viewControllers = vcArray;
+                NSArray *barArray = [[NSArray alloc] initWithObjects:self.classOneVC, self.driverApplyVC, nil];
+                self.mainTabBarController.viewControllers = barArray;
             }
                 break;
-            case 1:  //科目四
+            case CLASS_FOUR_CELL_ROW:  //科目四
             {
-                DriverTestLibNavigationViewController *nav = self.mainTabBarController.viewControllers[0];
-                NSArray *vcArray = [[NSArray alloc] initWithObjects:self.classFourVC, nil];
-                nav.viewControllers = vcArray;
+                
+                NSArray *vcArray = [[NSArray alloc] initWithObjects:self.classFourVC, self.driverApplyVC, nil];
+                self.mainTabBarController.viewControllers = vcArray;
+                UITabBar *tabBar = self.mainTabBarController.tabBar;
+                UITabBarItem *itemAccount = [tabBar.items objectAtIndex:0];
+                itemAccount.title = NSLocalizedString(@"DRIVER_TEST", NULL);
+                itemAccount.image = [UIImage imageNamed:@"DriverCard"];
+                itemAccount.selectedImage = [UIImage imageNamed:@"DriverCardSEL"];
             }
                 break;
             default:
@@ -149,4 +186,6 @@ static NSString *cellIdentify = @"MyCellIdentify";
         }
     }
 }
+
+
 @end
