@@ -42,7 +42,7 @@ const NSInteger contentViewTag = 3001;
         [self addSubview:_contentView];
        
         
-        _tapGestureRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSideBar)];
+        _tapGestureRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSideMenu)];
         _tapGestureRec.delegate=self;
         [_contentView addGestureRecognizer:_tapGestureRec];
       
@@ -63,18 +63,7 @@ const NSInteger contentViewTag = 3001;
 }
 
 #pragma mark GestureRect
-- (void) closeSideBar
-{
-    NSLog(@"Close Slide Bar");
-    CGRect contentViewToFrame = CGRectMake(0, _contentView.frame.origin.y, _contentView.frame.size.width, _contentView.frame.size.height);
-    CGRect slideMenuViewToFrame = CGRectMake(-self.menuViewSlideInWidth, _menuContentView.frame.origin.y, _menuContentView.frame.size.width, _menuContentView.frame.size.height);
-    [UIView animateWithDuration:0.3 animations:^{
-        [_contentView setFrame:contentViewToFrame];
-        [_menuContentView setFrame:slideMenuViewToFrame];
-    } completion:^(BOOL finished) {
-        _slideMenuShown = NO;
-    }];
-}
+
 - (void)moveViewWithGesture:(UIPanGestureRecognizer *)panGes
 {
     NSLog(@"moveViewWithGesture");
@@ -108,19 +97,10 @@ const NSInteger contentViewTag = 3001;
     if (panGes.state == UIGestureRecognizerStateEnded) {
         if (_contentView.frame.origin.x >= self.menuViewWidth/3)
         {
-            CGRect contentViewToFrame = CGRectMake(self.menuViewWidth, _contentView.frame.origin.y, _contentView.frame.size.width, _contentView.frame.size.height);
-            CGRect slideMenuViewToFrame = CGRectMake(0, _menuContentView.frame.origin.y, _menuContentView.frame.size.width, _menuContentView.frame.size.height);
-            // 拖拽超过屏幕1/3，显示侧栏
-            [UIView animateWithDuration:0.3 animations:^{
-                [_contentView setFrame:contentViewToFrame];
-                [_menuContentView setFrame:slideMenuViewToFrame];
-            } completion:^(BOOL finished) {
-                _slideMenuShown = YES;
-            }];
-    
+            [self showSlideMenu];
         }else
         {
-            [self closeSideBar];
+            [self closeSideMenu];
         }
 
     }
@@ -167,8 +147,40 @@ const NSInteger contentViewTag = 3001;
 #pragma mark SWDrag2ShowMenu public method
 -(void) showSlideMenu
 {
+    NSLog(@"Open slide bar");
+    CGRect contentViewToFrame = CGRectMake(self.menuViewWidth, _contentView.frame.origin.y, _contentView.frame.size.width, _contentView.frame.size.height);
+    CGRect slideMenuViewToFrame = CGRectMake(0, _menuContentView.frame.origin.y, _menuContentView.frame.size.width, _menuContentView.frame.size.height);
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [_contentView setFrame:contentViewToFrame];
+        [_menuContentView setFrame:slideMenuViewToFrame];
+    } completion:^(BOOL finished) {
+        _slideMenuShown = YES;
+    }];
 }
 
+- (void) closeSideMenu
+{
+    NSLog(@"Close Slide Bar");
+    CGRect contentViewToFrame = CGRectMake(0, _contentView.frame.origin.y, _contentView.frame.size.width, _contentView.frame.size.height);
+    CGRect slideMenuViewToFrame = CGRectMake(-self.menuViewSlideInWidth, _menuContentView.frame.origin.y, _menuContentView.frame.size.width, _menuContentView.frame.size.height);
+    [UIView animateWithDuration:0.3 animations:^{
+        [_contentView setFrame:contentViewToFrame];
+        [_menuContentView setFrame:slideMenuViewToFrame];
+    } completion:^(BOOL finished) {
+        _slideMenuShown = NO;
+    }];
+}
+
+-(void) switchSlideBarState
+{
+    if (self.slideMenuShown) {
+        [self closeSideMenu];
+    }else
+    {
+        [self showSlideMenu];
+    }
+}
 #pragma mark UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {

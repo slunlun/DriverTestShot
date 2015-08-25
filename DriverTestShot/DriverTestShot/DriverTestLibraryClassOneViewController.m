@@ -67,7 +67,7 @@ static NSString *CELL_IDENTITY = @"cellIdentify";
     navItem.leftBarButtonItem = showSlideMenuBarButton;
     
     UIImageView *userPic = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MyHead.jpg"]];
-    userPic.frame = CGRectMake(0, 0, 30, 30);
+    userPic.frame = CGRectMake(0, 0, 35, 35);
     userPic.layer.cornerRadius = userPic.frame.size.width / 2;
     userPic.clipsToBounds = YES;
     userPic.layer.borderWidth = 1.0f;
@@ -91,7 +91,9 @@ static NSString *CELL_IDENTITY = @"cellIdentify";
 
 -(void) showSlideMenuBtnPressed
 {
-    NSLog(@"show Slide Menu pressed");
+    if ([self.delegate respondsToSelector:@selector(DriverTestViewSlideMenuBarPressed:)]) {
+        [self.delegate DriverTestViewSlideMenuBarPressed:self];
+    }
 }
 #pragma mark UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section

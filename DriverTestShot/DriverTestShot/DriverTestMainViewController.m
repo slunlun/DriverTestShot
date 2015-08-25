@@ -150,10 +150,14 @@ static NSString *cellIdentify = @"MyCellIdentify";
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+-(void) DriverTestViewSlideMenuBarPressed:(UIViewController *) driverTestView
+{
+    [self.drag2ShowMenu switchSlideBarState];
+}
 #pragma mark tableview delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.drag2ShowMenu closeSideBar];
+    [self.drag2ShowMenu closeSideMenu];
     self.slideTableViewMenu.scrollsToTop = YES;
     NSIndexPath* indexPathZero = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.slideTableViewMenu scrollToRowAtIndexPath:indexPathZero atScrollPosition:UITableViewScrollPositionTop animated:NO];

@@ -16,6 +16,7 @@
 @property(nonatomic) CGFloat menuViewSlideInWidth;
 
 -(void) showSlideMenu;
-- (void) closeSideBar;
+- (void) closeSideMenu;
+-(void) switchSlideBarState;
 -(instancetype) initWithContentView:(UIView *) contentView;
 @end

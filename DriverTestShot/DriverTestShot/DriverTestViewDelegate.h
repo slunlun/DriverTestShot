@@ -13,6 +13,7 @@
 @protocol DriverTestViewProtocal<NSObject>
 @required
 -(void) DriverTestView:(UIViewController *) driverTestView shouldShowViewController:(UIViewController *) viewController;
+-(void) DriverTestViewSlideMenuBarPressed:(UIViewController *)driverTestView;
 @end
 
 #endif
