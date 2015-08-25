@@ -59,7 +59,7 @@ static NSString *CELL_IDENTITY = @"cellIdentify";
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     _navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, NAV_BAR_HEIGHT)];
     // set the interface of navigation
-    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"CLASS_FOUR", nil)];
+    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"CLASS_ONE", nil)];
     
     
     UIBarButtonItem *showSlideMenuBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SlideMenu"] style:UIBarButtonItemStylePlain target:self action:@selector(showSlideMenuBtnPressed)];
@@ -125,6 +125,7 @@ static NSString *CELL_IDENTITY = @"cellIdentify";
     if ([self.delegate respondsToSelector:@selector(DriverTestView:shouldShowViewController:)]) {
         DriverTestQuestionsViewController *vc = [[DriverTestQuestionsViewController alloc] init];
         [self.delegate DriverTestView:self shouldShowViewController:vc];
+        
     }
 }
 @end

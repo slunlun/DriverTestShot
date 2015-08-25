@@ -96,10 +96,15 @@
     [self initCellAttrArray];
     
 }
-
+// In ios7 and below , we must imply collectionViewContentSize, to tell IOS the content size of collectionview
+- (CGSize)collectionViewContentSize
+{
+    return self.collectionView.frame.size;
+}
 //返回cell的布局信息，如果忽略传入的rect一次性将所有的cell布局信息返回，图片过多时性能会很差
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect{
     NSLog(@"layoutAttributesForElementsInRect");
+    [super layoutAttributesForElementsInRect:rect];
     NSMutableArray *muArr = [NSMutableArray array];
     //indexPathsOfItem方法，根据传入的frame值计算当前应该显示的cell
     NSArray *indexPaths = [self indexPathsOfItem:rect];

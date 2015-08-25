@@ -106,6 +106,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E430FD11B8C10BF00D12E4C /* SlideCardView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SlideCardView;
+			sourceTree = "<group>";
+		};
 		5E5002BE1B8B106A004517FD /* DriverTestTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +146,7 @@
 		5EFA1A521B830F6A00047617 = {
 			isa = PBXGroup;
 			children = (
+				5E430FD11B8C10BF00D12E4C /* SlideCardView */,
 				804F10321B89C81E009D9803 /* LayOut */,
 				8032268D1B8381B100A01A67 /* classFour.png */,
 				8032268B1B83819700A01A67 /* classOne.png */,
