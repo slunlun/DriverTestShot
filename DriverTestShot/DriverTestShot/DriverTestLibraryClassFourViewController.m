@@ -13,9 +13,10 @@
 #import "DriverTestQuestionsViewController.h"
 
 static NSString *CELL_IDENTITY = @"cellIdentify";
-
+#define NAV_BAR_HEIGHT 60
 @interface DriverTestLibraryClassFourViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property(nonatomic, strong) UICollectionView *collectionView;
+@property(nonatomic, strong) UINavigationBar *navigationBar;
 @end
 
 @implementation DriverTestLibraryClassFourViewController
@@ -24,7 +25,7 @@ static NSString *CELL_IDENTITY = @"cellIdentify";
     [super viewDidLoad];
     // INIT CollectionView
     FlowLayoutForPageTest *flowLayout = [[FlowLayoutForPageTest alloc] init];
-    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:flowLayout];
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, NAV_BAR_HEIGHT, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:flowLayout];
     _collectionView.dataSource =self;
     _collectionView.delegate = self;
     _collectionView.backgroundColor = [UIColor lightGrayColor];
@@ -32,7 +33,7 @@ static NSString *CELL_IDENTITY = @"cellIdentify";
     [self.view addSubview:_collectionView];
     
     // INIT NavigationBar
-    self.navigationController.title = NSLocalizedString(@"CLASS_FOUR", nil);
+    [self layoutNavigationBar];
 
 
 }
@@ -51,7 +52,45 @@ static NSString *CELL_IDENTITY = @"cellIdentify";
     // Pass the selected object to the new view controller.
 }
 */
+-(void) layoutNavigationBar
+{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    _navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, NAV_BAR_HEIGHT)];
+    // set the interface of navigation
+    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"CLASS_FOUR", nil)];
+   
+    
+    UIBarButtonItem *showSlideMenuBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SlideMenu"] style:UIBarButtonItemStylePlain target:self action:@selector(showSlideMenuBtnPressed)];
+    showSlideMenuBarButton.tintColor = [UIColor blackColor];
+    navItem.leftBarButtonItem = showSlideMenuBarButton;
+    
+    UIImageView *userPic = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MyHead.jpg"]];
+    userPic.frame = CGRectMake(0, 0, 30, 30);
+    userPic.layer.cornerRadius = userPic.frame.size.width / 2;
+    userPic.clipsToBounds = YES;
+    userPic.layer.borderWidth = 1.0f;
+    userPic.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userInfoBtnPressed)];
+    [userPic addGestureRecognizer:tapRecognizer];
+    
+    
+    UIBarButtonItem *userInfoBtn = [[UIBarButtonItem alloc] initWithCustomView:userPic];
+    navItem.rightBarButtonItem = userInfoBtn;
+    
+    [_navigationBar pushNavigationItem:navItem animated:YES];
+    _navigationBar.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_navigationBar];
+    
+}
+-(void) userInfoBtnPressed
+{
+    NSLog(@"User Info pressed");
+}
 
+-(void) showSlideMenuBtnPressed
+{
+    NSLog(@"show Slide Menu pressed");
+}
 #pragma mark UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
