@@ -14,6 +14,7 @@
 		5E5002BD1B8B0997004517FD /* DriverTestQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5002BC1B8B0997004517FD /* DriverTestQuestionsViewController.m */; };
 		5E5002C21B8B15C3004517FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E5002C11B8B15C3004517FD /* Localizable.strings */; };
 		5E5002C51B8B2277004517FD /* DriverApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5002C41B8B2277004517FD /* DriverApplyViewController.m */; };
+		5EC756571B8D8B5D00FAFC11 /* SWCardSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC756561B8D8B5D00FAFC11 /* SWCardSlideView.m */; };
 		5EFA1A611B830F6A00047617 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A601B830F6A00047617 /* main.m */; };
 		5EFA1A641B830F6A00047617 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A631B830F6A00047617 /* AppDelegate.m */; };
 		5EFA1A671B830F6A00047617 /* DriverTestShot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A651B830F6A00047617 /* DriverTestShot.xcdatamodeld */; };
@@ -58,6 +59,8 @@
 		5E5002C11B8B15C3004517FD /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5E5002C31B8B2277004517FD /* DriverApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverApplyViewController.h; sourceTree = "<group>"; };
 		5E5002C41B8B2277004517FD /* DriverApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverApplyViewController.m; sourceTree = "<group>"; };
+		5EC756551B8D8B5400FAFC11 /* SWCardSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCardSlideView.h; sourceTree = "<group>"; };
+		5EC756561B8D8B5D00FAFC11 /* SWCardSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCardSlideView.m; sourceTree = "<group>"; };
 		5EFA1A5B1B830F6A00047617 /* DriverTestShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriverTestShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EFA1A5F1B830F6A00047617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EFA1A601B830F6A00047617 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 		5E430FD11B8C10BF00D12E4C /* SlideCardView */ = {
 			isa = PBXGroup;
 			children = (
+				5EC756561B8D8B5D00FAFC11 /* SWCardSlideView.m */,
+				5EC756551B8D8B5400FAFC11 /* SWCardSlideView.h */,
 			);
 			name = SlideCardView;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				5EFA1A9A1B832D0100047617 /* UserInfoTableViewCell.m in Sources */,
 				5E5002B31B8ABF18004517FD /* DriverTestLibraryClassFourViewController.m in Sources */,
 				804F10351B89C835009D9803 /* FlowLayoutForPageTest.m in Sources */,
+				5EC756571B8D8B5D00FAFC11 /* SWCardSlideView.m in Sources */,
 				5EFA1A8A1B83109900047617 /* SWDrag2ShowMenu.m in Sources */,
 				5E5002BD1B8B0997004517FD /* DriverTestQuestionsViewController.m in Sources */,
 				804F103B1B89CA52009D9803 /* WaterFallUICollectionViewCell.m in Sources */,
