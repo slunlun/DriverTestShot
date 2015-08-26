@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14C109" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="ImageLib" representedClassName="ImgLib" syncable="YES">
+    <entity name="ImageLibFour" representedClassName="ImgLibFour" syncable="YES">
+        <attribute name="belonged_QID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="img_content" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="img_dscp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="img_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ImageLibOne" representedClassName="ImgLibOne" syncable="YES">
+        <attribute name="belonged_QID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="img_content" attributeType="Binary" syncable="YES"/>
         <attribute name="img_dscp" attributeType="String" syncable="YES"/>
         <attribute name="img_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -29,6 +37,7 @@
     <elements>
         <element name="LibOne" positionX="-63" positionY="-18" width="128" height="165"/>
         <element name="LibFour" positionX="-54" positionY="54" width="128" height="165"/>
-        <element name="ImageLib" positionX="-36" positionY="99" width="128" height="105"/>
+        <element name="ImageLibOne" positionX="-36" positionY="99" width="128" height="120"/>
+        <element name="ImageLibFour" positionX="-18" positionY="108" width="128" height="120"/>
     </elements>
 </model>

@@ -8,7 +8,7 @@
 
 #import <CoreData/CoreData.h>
 
-@interface ImgLib : NSManagedObject
+@interface ImgLibOne : NSManagedObject
 @property(nonatomic, strong) NSNumber *img_id;
 @property(nonatomic, strong) NSData *img_content;
 @property(nonatomic, strong) NSString *img_dscp;
