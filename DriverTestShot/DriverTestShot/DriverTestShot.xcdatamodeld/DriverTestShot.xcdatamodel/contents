@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14C109" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ImageLib" representedClassName="ImgLib" syncable="YES">
+        <attribute name="img_content" attributeType="Binary" syncable="YES"/>
+        <attribute name="img_dscp" attributeType="String" syncable="YES"/>
+        <attribute name="img_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LibFour" representedClassName="LibFour" syncable="YES">
+        <attribute name="answer_items" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="img_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="is_marked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="question_dscp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="question_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="question_type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="right_answer" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LibOne" representedClassName="LibOne" syncable="YES">
+        <attribute name="answer_items" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="img_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="is_marked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="question_descp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="question_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="question_type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="right_answer" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="LibOne" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="LibFour" positionX="-54" positionY="54" width="128" height="165"/>
+        <element name="ImageLib" positionX="-36" positionY="99" width="128" height="105"/>
+    </elements>
 </model>
