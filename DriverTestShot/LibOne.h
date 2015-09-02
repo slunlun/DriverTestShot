@@ -2,19 +2,23 @@
 //  LibOne.h
 //  DriverTestShot
 //
-//  Created by EShi on 8/26/15.
+//  Created by EShi on 8/27/15.
 //  Copyright (c) 2015 Eren. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+
 @interface LibOne : NSManagedObject
-@property(nonatomic, strong) NSNumber *question_id;
-@property(nonatomic, strong) NSString *question_dscp;
-@property(nonatomic, strong) NSNumber *image_id;
-@property(nonatomic, strong) NSString *answer_items;
-@property(nonatomic, strong) NSString *right_answer;
-@property(nonatomic, strong) NSNumber *question_type;
-@property(nonatomic) BOOL is_marked;
-@property(nonatomic, strong) NSString *remark;
+
+@property (nonatomic, retain) NSNumber * question_id;
+@property (nonatomic, retain) NSString * question_descp;
+@property (nonatomic, retain) NSNumber * img_id;
+@property (nonatomic, retain) NSString * answer_items;
+@property (nonatomic, retain) NSString * right_answer;
+@property (nonatomic, retain) NSNumber * question_type;
+@property (nonatomic, retain) NSNumber * is_marked;
+@property (nonatomic, retain) NSString * remark;
+
 @end
