@@ -7,18 +7,29 @@
 //
 
 #import "DriverTestQuestionsViewController.h"
+#import "AppDelegate.h"
 
 @interface DriverTestQuestionsViewController ()
-
+@property(nonatomic, strong) NSMutableArray *questionsArray;
 @end
 
 @implementation DriverTestQuestionsViewController
+-(instancetype) initWithTestType:(DriverTestType)type
+{
+    self = [super init];
+    if (self) {
+        _testType = type;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = NO;
     self.view.backgroundColor = [UIColor brownColor];
+    
+    [self initTestLibData:_testType];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,5 +50,31 @@
 {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBarHidden = YES;
+}
+
+- (void) initTestLibData:(DriverTestType) testType
+{
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context = appDelegate.managedObjectContext;
+
+    switch (testType) {
+        case TEST_ONE_NORMAL:
+        {
+            NSFetchRequest *fetchReq = [[NSFetchRequest alloc] init];
+            NSEntityDescription *entity = [NSEntityDescription entityForName:TEST_ONE_QUESTION_TAB inManagedObjectContext:context];
+            fetchReq.entity = entity;
+            NSError *error = [[NSError alloc] init];
+            NSArray *ar = [context executeFetchRequest:fetchReq error:nil];
+            _questionsArray = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchReq error:&error]];
+            if (error) {
+                assert(YES);
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 @end

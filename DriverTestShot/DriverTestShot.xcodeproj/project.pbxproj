@@ -36,6 +36,7 @@
 		80495BEB1B99C81B005D54A8 /* CustomLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 80495BEA1B99C81B005D54A8 /* CustomLib.m */; };
 		804F10351B89C835009D9803 /* FlowLayoutForPageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 804F10341B89C835009D9803 /* FlowLayoutForPageTest.m */; };
 		804F103B1B89CA52009D9803 /* WaterFallUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 804F103A1B89CA52009D9803 /* WaterFallUICollectionViewCell.m */; };
+		80E9EA9A1BAE65F400003788 /* DriverTestShot.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EA991BAE65F400003788 /* DriverTestShot.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,8 @@
 		804F10341B89C835009D9803 /* FlowLayoutForPageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowLayoutForPageTest.m; sourceTree = "<group>"; };
 		804F10391B89CA4A009D9803 /* WaterFallUICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFallUICollectionViewCell.h; sourceTree = "<group>"; };
 		804F103A1B89CA52009D9803 /* WaterFallUICollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFallUICollectionViewCell.m; sourceTree = "<group>"; };
+		80E9EA981BAE5A0800003788 /* DriverTestShotDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverTestShotDefine.h; sourceTree = "<group>"; };
+		80E9EA991BAE65F400003788 /* DriverTestShot.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = DriverTestShot.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +189,7 @@
 		5EFA1A521B830F6A00047617 = {
 			isa = PBXGroup;
 			children = (
+				80E9EA991BAE65F400003788 /* DriverTestShot.sqlite */,
 				5EC756581B8DB14600FAFC11 /* Core Data */,
 				5E430FD11B8C10BF00D12E4C /* SlideCardView */,
 				804F10321B89C81E009D9803 /* LayOut */,
@@ -211,6 +215,7 @@
 		5EFA1A5D1B830F6A00047617 /* DriverTestShot */ = {
 			isa = PBXGroup;
 			children = (
+				80E9EA981BAE5A0800003788 /* DriverTestShotDefine.h */,
 				5E28583D1B9C157C00FA6D01 /* DataModel */,
 				5E5002C01B8B11AA004517FD /* UserInfo */,
 				5E5002BF1B8B10E9004517FD /* DriverTestQuestions */,
@@ -374,6 +379,7 @@
 				5EFA1A9B1B832D0100047617 /* UserInfoTableViewCell.xib in Resources */,
 				5EFA1A6D1B830F6A00047617 /* Main.storyboard in Resources */,
 				5EFA1A721B830F6A00047617 /* LaunchScreen.xib in Resources */,
+				80E9EA9A1BAE65F400003788 /* DriverTestShot.sqlite in Resources */,
 				5EFA1A6F1B830F6A00047617 /* Images.xcassets in Resources */,
 				5EFA1A9D1B83336A00047617 /* MyHead.jpg in Resources */,
 				8032268C1B83819700A01A67 /* classOne.png in Resources */,
