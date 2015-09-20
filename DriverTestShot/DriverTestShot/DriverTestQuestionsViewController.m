@@ -30,6 +30,7 @@
     self.view.backgroundColor = [UIColor brownColor];
     
     [self initTestLibData:_testType];
+    [self layoutNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +53,7 @@
     self.navigationController.navigationBarHidden = YES;
 }
 
+#pragma mark INIT
 - (void) initTestLibData:(DriverTestType) testType
 {
     
@@ -65,7 +67,6 @@
             NSEntityDescription *entity = [NSEntityDescription entityForName:TEST_ONE_QUESTION_TAB inManagedObjectContext:context];
             fetchReq.entity = entity;
             NSError *error = [[NSError alloc] init];
-            NSArray *ar = [context executeFetchRequest:fetchReq error:nil];
             _questionsArray = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchReq error:&error]];
             if (error) {
                 assert(YES);
@@ -76,5 +77,30 @@
         default:
             break;
     }
+}
+
+-(void) layoutNavigationBar
+{
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 19, 22)];
+    [btn setImage:[UIImage imageNamed:@"QuestionCount"] forState:UIControlStateNormal];
+    [btn setTitle:@"20" forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:9];
+    
+    [btn addTarget:self action:@selector(markQuestion:) forControlEvents:UIControlEventTouchUpInside];
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 14, -btn.titleLabel.bounds.size.width-10);
+   btn.titleEdgeInsets = UIEdgeInsetsMake(6, -btn.imageView.bounds.size.width, 5, 0);
+    
+    
+    UIBarButtonItem *btnQuestionNum = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    self.navigationItem.rightBarButtonItem = btnQuestionNum;
+    
+    
+    
+}
+
+-(void) markQuestion:(UIButton *) btnItem
+{
+    
 }
 @end
