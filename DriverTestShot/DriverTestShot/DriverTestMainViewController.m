@@ -171,6 +171,12 @@ static NSString *cellIdentify = @"MyCellIdentify";
             {
                 NSArray *barArray = [[NSArray alloc] initWithObjects:self.classOneVC, self.driverApplyVC, nil];
                 self.mainTabBarController.viewControllers = barArray;
+                UITabBar *tabBar = self.mainTabBarController.tabBar;
+                UITabBarItem *itemAccount = [tabBar.items objectAtIndex:0];
+                itemAccount.title = NSLocalizedString(@"DRIVER_TEST", NULL);
+                itemAccount.image = [UIImage imageNamed:@"DriverCard"];
+                itemAccount.selectedImage = [UIImage imageNamed:@"DriverCardSEL"];
+
             }
                 break;
             case CLASS_FOUR_CELL_ROW:  //科目四
