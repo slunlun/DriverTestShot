@@ -125,7 +125,7 @@ static NSString *CELL_IDENTITY = @"cellIdentify";
 {
     NSLog(@"Now select %@", indexPath);
     if ([self.delegate respondsToSelector:@selector(DriverTestView:shouldShowViewController:)]) {
-        DriverTestQuestionsViewController *vc = [[DriverTestQuestionsViewController alloc] init];
+        DriverTestQuestionsViewController *vc = [[DriverTestQuestionsViewController alloc] initWithTestType:TEST_ONE_NORMAL];
         [self.delegate DriverTestView:self shouldShowViewController:vc];
         
     }

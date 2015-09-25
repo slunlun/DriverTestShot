@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DriverTestShotDefine.h"
 
 @interface DriverTestQuestionsViewController : UIViewController
+@property(nonatomic) NSInteger testType;
 
+-(instancetype) initWithTestType:(DriverTestType)type;
 @end

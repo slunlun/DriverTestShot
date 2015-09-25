@@ -1,43 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14C109" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="ImageLibFour" representedClassName="ImgLibFour" syncable="YES">
-        <attribute name="belonged_QID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="img_content" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="img_dscp" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="img_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14C1514" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CustomLib" representedClassName="CustomLib" syncable="YES">
+        <attribute name="isInMemory" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="memoryState" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nextMemoryDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="startMemoryDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="libFourQuestions" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="DriverTestLibFour" syncable="YES"/>
+        <relationship name="libOneQuestions" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="DriverTestLibOne" syncable="YES"/>
     </entity>
-    <entity name="ImageLibOne" representedClassName="ImgLibOne" syncable="YES">
-        <attribute name="belonged_QID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="img_content" attributeType="Binary" syncable="YES"/>
-        <attribute name="img_dscp" attributeType="String" syncable="YES"/>
-        <attribute name="img_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    <entity name="DriverTestLibFour" representedClassName="DriverTestLibFour" syncable="YES">
+        <attribute name="answerA" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answerB" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answerC" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answerD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imgNum" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="questionDesc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rightAnswer" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ownCustomLib" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="CustomLib" syncable="YES"/>
     </entity>
-    <entity name="LibFour" representedClassName="LibFour" syncable="YES">
-        <attribute name="answer_items" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="img_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="is_marked" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="question_dscp" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="question_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="question_type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    <entity name="DriverTestLibOne" representedClassName="DriverTestLibOne" syncable="YES">
+        <attribute name="answerA" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answerB" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answerC" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answerD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imgNum" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="questionDesc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="right_answer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rightAnswer" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ownCustomLib" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="CustomLib" syncable="YES"/>
     </entity>
-    <entity name="LibOne" representedClassName="LibOne" syncable="YES">
-        <attribute name="answer_items" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="img_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="is_marked" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="question_descp" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="question_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="question_type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    <entity name="WrongAnswer" representedClassName="WrongAnswer" syncable="YES">
+        <attribute name="answerA" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answerB" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answerC" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answerD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="belongLib" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="imgNum" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="questionDesc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="right_answer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rightAnswer" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="LibOne" positionX="-63" positionY="-18" width="128" height="165"/>
-        <element name="LibFour" positionX="-54" positionY="54" width="128" height="165"/>
-        <element name="ImageLibOne" positionX="-36" positionY="99" width="128" height="120"/>
-        <element name="ImageLibFour" positionX="-18" positionY="108" width="128" height="120"/>
+        <element name="DriverTestLibOne" positionX="-153" positionY="-72" width="128" height="178"/>
+        <element name="DriverTestLibFour" positionX="-569" positionY="-72" width="128" height="178"/>
+        <element name="CustomLib" positionX="-423" positionY="182" width="128" height="148"/>
+        <element name="WrongAnswer" positionX="-83" positionY="198" width="128" height="178"/>
     </elements>
 </model>
