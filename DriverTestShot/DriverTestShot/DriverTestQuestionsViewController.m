@@ -8,9 +8,17 @@
 
 #import "DriverTestQuestionsViewController.h"
 #import "AppDelegate.h"
+#import "UIButton+SWUIButtonExt.h"
+#import "DriverTestLibOne.h"
+#import "DriverTestLibFour.h"
+#import "DriverTestLib.h"
 
 @interface DriverTestQuestionsViewController ()
 @property(nonatomic, strong) NSMutableArray *questionsArray;
+@property(nonatomic, strong) UIButton *questionsBtn;
+@property(nonatomic, strong) UIButton *markBtn;
+@property(nonatomic, strong) DriverTestLib *currentQuestion;
+@property(nonatomic) NSInteger currentQuestionNum;
 @end
 
 @implementation DriverTestQuestionsViewController
@@ -28,6 +36,7 @@
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = NO;
     self.view.backgroundColor = [UIColor brownColor];
+    _currentQuestionNum = 1;
     
     [self initTestLibData:_testType];
     [self layoutNavigationBar];
@@ -68,6 +77,7 @@
             fetchReq.entity = entity;
             NSError *error = [[NSError alloc] init];
             _questionsArray = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchReq error:&error]];
+            _currentQuestion = [_questionsArray firstObject];
             if (error) {
                 assert(YES);
             }
@@ -82,25 +92,39 @@
 -(void) layoutNavigationBar
 {
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 19, 22)];
-    [btn setImage:[UIImage imageNamed:@"QuestionCount"] forState:UIControlStateNormal];
-    [btn setTitle:@"20" forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:9];
+    _questionsBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 55, 32)];
+    [_questionsBtn setImage:[UIImage imageNamed:@"QuestionCount"] forState:UIControlStateNormal];
+    [_questionsBtn setTitle:[NSString stringWithFormat:@"%ld/%lu", (long)_currentQuestionNum, (unsigned long)_questionsArray.count] forState:UIControlStateNormal];
+    _questionsBtn.titleLabel.font = [UIFont systemFontOfSize:9];
+//    _questionsBtn.titleLabel.backgroundColor = [UIColor yellowColor];
+//    _questionsBtn.imageView.backgroundColor = [UIColor redColor];
+//    _questionsBtn.backgroundColor = [UIColor grayColor];
     
-    [btn addTarget:self action:@selector(markQuestion:) forControlEvents:UIControlEventTouchUpInside];
-    btn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 14, -btn.titleLabel.bounds.size.width-10);
-   btn.titleEdgeInsets = UIEdgeInsetsMake(6, -btn.imageView.bounds.size.width, 5, 0);
+    [_questionsBtn centerImageAndTitle:1.0];
+    
+    _markBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+    [_markBtn setImage:[UIImage imageNamed:@"PinNot"] forState:UIControlStateNormal];
+    [_markBtn setTitle: NSLocalizedString(@"MARK_QUESTION", NULL) forState:UIControlStateNormal];
+    _markBtn.titleLabel.font = [UIFont systemFontOfSize:9];
+    [_markBtn addTarget:self action:@selector(markQuestion:) forControlEvents:UIControlEventTouchUpInside];
+    [_markBtn centerImageAndTitle:1.0];
     
     
-    UIBarButtonItem *btnQuestionNum = [[UIBarButtonItem alloc] initWithCustomView:btn];
-    self.navigationItem.rightBarButtonItem = btnQuestionNum;
-    
-    
-    
+    UIBarButtonItem *btnQuestionNum = [[UIBarButtonItem alloc] initWithCustomView:_questionsBtn];
+    UIBarButtonItem *btnMakrQuestion = [[UIBarButtonItem alloc] initWithCustomView:_markBtn];
+    NSArray *barBtnItemArray = @[btnMakrQuestion, btnQuestionNum];
+    self.navigationItem.rightBarButtonItems = barBtnItemArray;
 }
 
 -(void) markQuestion:(UIButton *) btnItem
 {
+    if (self.currentQuestion.ownCustomLib) {
+        // do delete from mark
+    }else
+    {
+        [self.markBtn setImage:[UIImage imageNamed:@"Pin"] forState:UIControlStateNormal];
+        
+    }
     
 }
 @end

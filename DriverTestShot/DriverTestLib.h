@@ -1,18 +1,14 @@
 //
-//  DriverTestLibFour.h
+//  DriverTestLib.h
 //  DriverTestShot
 //
-//  Created by ShiTeng on 15/9/4.
-//  Copyright (c) 2015年 Eren. All rights reserved.
+//  Created by EShi on 9/29/15.
+//  Copyright © 2015 Eren. All rights reserved.
 //
-
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "DriverTestLib.h"
 @class CustomLib;
-
-@interface DriverTestLibFour : DriverTestLib
-
+@interface DriverTestLib : NSManagedObject
 @property (nonatomic, retain) NSString * questionDesc;
 @property (nonatomic, retain) NSString * answerA;
 @property (nonatomic, retain) NSString * answerB;
@@ -22,5 +18,4 @@
 @property (nonatomic, retain) NSString * remark;
 @property (nonatomic, retain) NSNumber * imgNum;
 @property (nonatomic, retain) CustomLib *ownCustomLib;
-
 @end

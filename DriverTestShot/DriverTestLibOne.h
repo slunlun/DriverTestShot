@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "DriverTestLib.h"
 
 @class CustomLib;
 
-@interface DriverTestLibOne : NSManagedObject
+@interface DriverTestLibOne : DriverTestLib
 
 @property (nonatomic, retain) NSString * questionDesc;
 @property (nonatomic, retain) NSString * answerA;
