@@ -12,13 +12,15 @@
 #import "DriverTestLibOne.h"
 #import "DriverTestLibFour.h"
 #import "DriverTestLib.h"
+#import "SWCardSlideView.h"
 
-@interface DriverTestQuestionsViewController ()
+@interface DriverTestQuestionsViewController ()<SWCardSlideViewDelegate>
 @property(nonatomic, strong) NSMutableArray *questionsArray;
 @property(nonatomic, strong) UIButton *questionsBtn;
 @property(nonatomic, strong) UIButton *markBtn;
 @property(nonatomic, strong) DriverTestLib *currentQuestion;
 @property(nonatomic) NSInteger currentQuestionNum;
+@property(nonatomic, strong) SWCardSlideView *contentSlideView;
 @end
 
 @implementation DriverTestQuestionsViewController
@@ -40,6 +42,7 @@
     
     [self initTestLibData:_testType];
     [self layoutNavigationBar];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,6 +66,11 @@
 }
 
 #pragma mark INIT
+-(void) initContentSlideViewWithQuestion:(DriverTestLib *) question
+{
+    
+}
+
 - (void) initTestLibData:(DriverTestType) testType
 {
     
@@ -126,5 +134,13 @@
         
     }
     
+}
+
+#pragma mark SWCardSlideViewDelegate
+-(void) cardDidSlideOffLeft:(SWCardSlideView *) cardView
+{
+}
+-(void) cardDidSLideOffRight:(SWCardSlideView *) cardView
+{
 }
 @end
