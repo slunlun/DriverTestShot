@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSString * rightAnswer;
 @property (nonatomic, retain) NSString * remark;
 @property (nonatomic, retain) NSNumber * imgNum;
+@property (nonatomic, retain) NSString * imgPerfix;
 @property (nonatomic, retain) CustomLib *ownCustomLib;
 @end

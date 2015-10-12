@@ -2,7 +2,7 @@
 //  DriverTestLibOne.m
 //  DriverTestShot
 //
-//  Created by ShiTeng on 15/9/4.
+//  Created by ShiTeng on 15/10/11.
 //  Copyright (c) 2015年 Eren. All rights reserved.
 //
 
@@ -12,14 +12,15 @@
 
 @implementation DriverTestLibOne
 
-@dynamic questionDesc;
 @dynamic answerA;
 @dynamic answerB;
 @dynamic answerC;
 @dynamic answerD;
-@dynamic rightAnswer;
-@dynamic remark;
 @dynamic imgNum;
+@dynamic questionDesc;
+@dynamic remark;
+@dynamic rightAnswer;
+@dynamic imgPrefix;
 @dynamic ownCustomLib;
 
 @end
