@@ -17,5 +17,6 @@
 @dynamic rightAnswer;
 @dynamic remark;
 @dynamic imgNum;
+@dynamic imgPerfix;
 @dynamic ownCustomLib;
 @end
