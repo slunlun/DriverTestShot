@@ -14,6 +14,7 @@
 		5E5002BD1B8B0997004517FD /* DriverTestQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5002BC1B8B0997004517FD /* DriverTestQuestionsViewController.m */; };
 		5E5002C21B8B15C3004517FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E5002C11B8B15C3004517FD /* Localizable.strings */; };
 		5E5002C51B8B2277004517FD /* DriverApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5002C41B8B2277004517FD /* DriverApplyViewController.m */; };
+		5E87BE051BCB9BC400942343 /* DriverTestShot.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5E87BE041BCB9BC400942343 /* DriverTestShot.sqlite */; settings = {ASSET_TAGS = (); }; };
 		5EC756571B8D8B5D00FAFC11 /* SWCardSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC756561B8D8B5D00FAFC11 /* SWCardSlideView.m */; };
 		5EDD13611BBA84370035A658 /* UIButton+SWUIButtonExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDD13601BBA84370035A658 /* UIButton+SWUIButtonExt.m */; };
 		5EDD13651BBA901B0035A658 /* DriverTestLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDD13641BBA901B0035A658 /* DriverTestLib.m */; };
@@ -38,7 +39,6 @@
 		804F103B1B89CA52009D9803 /* WaterFallUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 804F103A1B89CA52009D9803 /* WaterFallUICollectionViewCell.m */; };
 		806D96261BCA06E50003B6B8 /* DriverTestLibOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 806D96251BCA06E50003B6B8 /* DriverTestLibOne.m */; };
 		806D96291BCA06E60003B6B8 /* DriverTestLibFour.m in Sources */ = {isa = PBXBuildFile; fileRef = 806D96281BCA06E60003B6B8 /* DriverTestLibFour.m */; };
-		80E9EA9A1BAE65F400003788 /* DriverTestShot.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EA991BAE65F400003788 /* DriverTestShot.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +66,7 @@
 		5E5002C11B8B15C3004517FD /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5E5002C31B8B2277004517FD /* DriverApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverApplyViewController.h; sourceTree = "<group>"; };
 		5E5002C41B8B2277004517FD /* DriverApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverApplyViewController.m; sourceTree = "<group>"; };
+		5E87BE041BCB9BC400942343 /* DriverTestShot.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = DriverTestShot.sqlite; sourceTree = "<group>"; };
 		5EC756551B8D8B5400FAFC11 /* SWCardSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCardSlideView.h; sourceTree = "<group>"; };
 		5EC756561B8D8B5D00FAFC11 /* SWCardSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCardSlideView.m; sourceTree = "<group>"; };
 		5EDD135F1BBA84370035A658 /* UIButton+SWUIButtonExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SWUIButtonExt.h"; sourceTree = "<group>"; };
@@ -109,7 +110,6 @@
 		806D96271BCA06E60003B6B8 /* DriverTestLibFour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverTestLibFour.h; sourceTree = "<group>"; };
 		806D96281BCA06E60003B6B8 /* DriverTestLibFour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverTestLibFour.m; sourceTree = "<group>"; };
 		80E9EA981BAE5A0800003788 /* DriverTestShotDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverTestShotDefine.h; sourceTree = "<group>"; };
-		80E9EA991BAE65F400003788 /* DriverTestShot.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = DriverTestShot.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +179,7 @@
 		5EC756581B8DB14600FAFC11 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				5E87BE041BCB9BC400942343 /* DriverTestShot.sqlite */,
 				5EFA1A651B830F6A00047617 /* DriverTestShot.xcdatamodeld */,
 				806D96271BCA06E60003B6B8 /* DriverTestLibFour.h */,
 				806D96281BCA06E60003B6B8 /* DriverTestLibFour.m */,
@@ -197,7 +198,6 @@
 		5EFA1A521B830F6A00047617 = {
 			isa = PBXGroup;
 			children = (
-				80E9EA991BAE65F400003788 /* DriverTestShot.sqlite */,
 				5EC756581B8DB14600FAFC11 /* Core Data */,
 				5E430FD11B8C10BF00D12E4C /* SlideCardView */,
 				804F10321B89C81E009D9803 /* LayOut */,
@@ -389,7 +389,7 @@
 				5EFA1A9B1B832D0100047617 /* UserInfoTableViewCell.xib in Resources */,
 				5EFA1A6D1B830F6A00047617 /* Main.storyboard in Resources */,
 				5EFA1A721B830F6A00047617 /* LaunchScreen.xib in Resources */,
-				80E9EA9A1BAE65F400003788 /* DriverTestShot.sqlite in Resources */,
+				5E87BE051BCB9BC400942343 /* DriverTestShot.sqlite in Resources */,
 				5EFA1A6F1B830F6A00047617 /* Images.xcassets in Resources */,
 				5EFA1A9D1B83336A00047617 /* MyHead.jpg in Resources */,
 				8032268C1B83819700A01A67 /* classOne.png in Resources */,

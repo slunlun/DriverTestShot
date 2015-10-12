@@ -20,7 +20,7 @@
 @dynamic questionDesc;
 @dynamic remark;
 @dynamic rightAnswer;
-@dynamic imgPrefix;
+@dynamic imgPerfix;
 @dynamic ownCustomLib;
 
 @end
