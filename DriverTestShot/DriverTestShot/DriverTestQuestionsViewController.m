@@ -14,13 +14,20 @@
 #import "DriverTestLib.h"
 #import "SWCardSlideView.h"
 
-@interface DriverTestQuestionsViewController ()<SWCardSlideViewDelegate>
+#define CARD_MARGIN 10
+static NSString *CELL_IDENTITY_QUESTION = @"CELL_IDENTITY_QUESTION";
+static NSString *CELL_IDENTITY_IMAGES = @"CELL_IDENTITY_IMAGES";
+static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
+
+@interface DriverTestQuestionsViewController ()<SWCardSlideViewDelegate, UITableViewDataSource, UITabBarDelegate>
 @property(nonatomic, strong) NSMutableArray *questionsArray;
 @property(nonatomic, strong) UIButton *questionsBtn;
 @property(nonatomic, strong) UIButton *markBtn;
 @property(nonatomic, strong) DriverTestLib *currentQuestion;
 @property(nonatomic) NSInteger currentQuestionNum;
 @property(nonatomic, strong) SWCardSlideView *contentSlideView;
+@property(nonatomic, strong) UITableView *questionContentTableView;
+@property(nonatomic) BOOL isSelAnswer;
 @end
 
 @implementation DriverTestQuestionsViewController
@@ -39,6 +46,7 @@
     self.navigationController.navigationBarHidden = NO;
     self.view.backgroundColor = [UIColor brownColor];
     _currentQuestionNum = 1;
+    _isSelAnswer = NO;
     
     [self initTestLibData:_testType];
     [self layoutNavigationBar];
@@ -143,4 +151,121 @@
 -(void) cardDidSLideOffRight:(SWCardSlideView *) cardView
 {
 }
+
+#pragma mark About Table View
+#pragma mark UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger rows = 1;
+    rows += [_currentQuestion.imgNum integerValue];
+    
+    // 判断题
+    if ([_currentQuestion.answerC isEqualToString:@""]) {
+        rows += 2;
+    }else // 4选题
+    {
+        rows += 4;
+    }
+    return rows;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = nil;
+    
+    
+    
+    if(indexPath.row == 0)
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTITY_QUESTION];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_IDENTITY_QUESTION];
+        }
+        
+        cell.frame = CGRectMake(cell.contentView.frame.origin.x, cell.contentView.frame.origin.y, tableView.frame.size.width, cell.contentView.frame.size.height);
+        cell.textLabel.numberOfLines = 0;
+        cell.textLabel.text = self.currentQuestion.questionDesc;
+        cell.textLabel.lineBreakMode = NSLineBreakByCharWrapping;
+        
+        CGSize textSize = [cell.textLabel sizeThatFits:CGSizeMake(cell.frame.size.width, MAXFLOAT)];
+        
+        cell.textLabel.textColor = [UIColor blackColor];
+        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, textSize.height + 24);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        
+    }else if(indexPath.row == 1)
+    {
+        if ([_currentQuestion.imgNum integerValue] != 0) {
+            // 获取对应图片
+            cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTITY_IMAGES];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_IDENTITY_IMAGES];
+            }
+            
+            for (UIView *subView in cell.contentView.subviews) {
+                [subView removeFromSuperview];
+            }
+            cell.frame = CGRectMake(cell.contentView.frame.origin.x, cell.contentView.frame.origin.y, tableView.frame.size.width, cell.contentView.frame.size.height);
+            UIView *imgContentView = [[UIView alloc] initWithFrame:cell.contentView.frame];
+            CGSize imageSize;
+            imageSize.height = cell.frame.size.height * 2;
+            imageSize.width = cell.frame.size.width - 20;
+            
+            imgContentView.frame = CGRectMake(0, 0, cell.frame.size.width, 5 * 3 + imageSize.height * 2);
+            cell.frame = imgContentView.frame;
+            
+            
+            for (int i = 0; i < [self.currentQuestion.imgNum intValue]; i++) {
+                UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%d", self.currentQuestion.imgPerfix, i]]];
+                imageView.frame = CGRectMake(10, imageSize.height * i + 5 * (i + 1), imageSize.width, imageSize.height);
+                [imgContentView addSubview:imageView];
+            }
+            
+            [cell.contentView addSubview:imgContentView];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+            
+        }else
+        {
+            // 没有图片，则这是第一个答案选项A
+            cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTITY_ANSWER_ITEM];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_IDENTITY_ANSWER_ITEM];
+            }
+            cell.textLabel.numberOfLines = 0;
+            cell.textLabel.text = self.currentQuestion.answerA;
+            cell.textLabel.lineBreakMode = NSLineBreakByCharWrapping;
+            
+            CGSize textSize = [cell.textLabel sizeThatFits:CGSizeMake(cell.frame.size.width, MAXFLOAT)];
+            
+            cell.textLabel.textColor = [UIColor blackColor];
+            cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, textSize.height + 24);
+            
+        }
+    
+    }else if(indexPath.row == 2){
+        
+    }else if(indexPath.row == 3){
+        
+    }
+    else if(indexPath.row == 4){
+        
+    }else if(indexPath.row == 5){
+        
+    }
+            
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+}
+
+
 @end
