@@ -16,6 +16,8 @@
 		5E5002C51B8B2277004517FD /* DriverApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5002C41B8B2277004517FD /* DriverApplyViewController.m */; };
 		5E87BE051BCB9BC400942343 /* DriverTestShot.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5E87BE041BCB9BC400942343 /* DriverTestShot.sqlite */; settings = {ASSET_TAGS = (); }; };
 		5EC756571B8D8B5D00FAFC11 /* SWCardSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC756561B8D8B5D00FAFC11 /* SWCardSlideView.m */; };
+		5ECED3B81BCC921D00EA3060 /* LibOne1-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ECED3B71BCC921D00EA3060 /* LibOne1-0.png */; settings = {ASSET_TAGS = (); }; };
+		5ECED3BA1BCC922400EA3060 /* LibOne1-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ECED3B91BCC922400EA3060 /* LibOne1-1.png */; settings = {ASSET_TAGS = (); }; };
 		5EDD13611BBA84370035A658 /* UIButton+SWUIButtonExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDD13601BBA84370035A658 /* UIButton+SWUIButtonExt.m */; };
 		5EDD13651BBA901B0035A658 /* DriverTestLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDD13641BBA901B0035A658 /* DriverTestLib.m */; };
 		5EFA1A611B830F6A00047617 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA1A601B830F6A00047617 /* main.m */; };
@@ -69,6 +71,8 @@
 		5E87BE041BCB9BC400942343 /* DriverTestShot.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = DriverTestShot.sqlite; sourceTree = "<group>"; };
 		5EC756551B8D8B5400FAFC11 /* SWCardSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCardSlideView.h; sourceTree = "<group>"; };
 		5EC756561B8D8B5D00FAFC11 /* SWCardSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCardSlideView.m; sourceTree = "<group>"; };
+		5ECED3B71BCC921D00EA3060 /* LibOne1-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LibOne1-0.png"; sourceTree = "<group>"; };
+		5ECED3B91BCC922400EA3060 /* LibOne1-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LibOne1-1.png"; sourceTree = "<group>"; };
 		5EDD135F1BBA84370035A658 /* UIButton+SWUIButtonExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SWUIButtonExt.h"; sourceTree = "<group>"; };
 		5EDD13601BBA84370035A658 /* UIButton+SWUIButtonExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SWUIButtonExt.m"; sourceTree = "<group>"; };
 		5EDD13631BBA901B0035A658 /* DriverTestLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverTestLib.h; sourceTree = "<group>"; };
@@ -195,9 +199,35 @@
 			name = "Core Data";
 			sourceTree = "<group>";
 		};
+		5ECED3B41BCC90D200EA3060 /* imageSources */ = {
+			isa = PBXGroup;
+			children = (
+				5ECED3B61BCC90F700EA3060 /* TestLibFourImgs */,
+				5ECED3B51BCC90DD00EA3060 /* TestLibOneImgs */,
+			);
+			name = imageSources;
+			sourceTree = "<group>";
+		};
+		5ECED3B51BCC90DD00EA3060 /* TestLibOneImgs */ = {
+			isa = PBXGroup;
+			children = (
+				5ECED3B91BCC922400EA3060 /* LibOne1-1.png */,
+				5ECED3B71BCC921D00EA3060 /* LibOne1-0.png */,
+			);
+			name = TestLibOneImgs;
+			sourceTree = "<group>";
+		};
+		5ECED3B61BCC90F700EA3060 /* TestLibFourImgs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TestLibFourImgs;
+			sourceTree = "<group>";
+		};
 		5EFA1A521B830F6A00047617 = {
 			isa = PBXGroup;
 			children = (
+				5ECED3B41BCC90D200EA3060 /* imageSources */,
 				5EC756581B8DB14600FAFC11 /* Core Data */,
 				5E430FD11B8C10BF00D12E4C /* SlideCardView */,
 				804F10321B89C81E009D9803 /* LayOut */,
@@ -386,12 +416,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ECED3BA1BCC922400EA3060 /* LibOne1-1.png in Resources */,
 				5EFA1A9B1B832D0100047617 /* UserInfoTableViewCell.xib in Resources */,
 				5EFA1A6D1B830F6A00047617 /* Main.storyboard in Resources */,
 				5EFA1A721B830F6A00047617 /* LaunchScreen.xib in Resources */,
 				5E87BE051BCB9BC400942343 /* DriverTestShot.sqlite in Resources */,
 				5EFA1A6F1B830F6A00047617 /* Images.xcassets in Resources */,
 				5EFA1A9D1B83336A00047617 /* MyHead.jpg in Resources */,
+				5ECED3B81BCC921D00EA3060 /* LibOne1-0.png in Resources */,
 				8032268C1B83819700A01A67 /* classOne.png in Resources */,
 				8032268E1B8381B100A01A67 /* classFour.png in Resources */,
 				5E5002C21B8B15C3004517FD /* Localizable.strings in Resources */,
