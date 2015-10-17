@@ -24,7 +24,7 @@ static NSString *CELL_IDENTITY_QUESTION = @"CELL_IDENTITY_QUESTION";
 static NSString *CELL_IDENTITY_IMAGES = @"CELL_IDENTITY_IMAGES";
 static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
 
-@interface DriverTestQuestionsViewController ()<SWCardSlideViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface DriverTestQuestionsViewController ()<SWCardSlideViewDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 @property(nonatomic, strong) NSMutableArray *questionsArray;
 @property(nonatomic, strong) UIButton *questionsBtn;
 @property(nonatomic, strong) UIButton *markBtn;
@@ -54,6 +54,8 @@ static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = NO;
+    // make navigationController pop gesture fail. otherwise will make mass
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     self.view.backgroundColor = [UIColor brownColor];
     _currentQuestionIndex = 0;
     _isSelAnswer = NO;
@@ -421,6 +423,9 @@ static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
     
 }
 
-
-
+#pragma mark Gesture response
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return NO;
+}
 @end
