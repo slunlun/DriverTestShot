@@ -204,14 +204,36 @@ static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
     [_questionsBtn setTitle:[NSString stringWithFormat:@"%ld/%lu", (long)(_currentQuestionIndex + 1), (unsigned long)_questionsArray.count] forState:UIControlStateNormal];
     
     [self.contentSlideView showFromRight];
+
+    
 }
 -(void) cardDidSLideOffRight:(SWCardSlideView *) cardView
 {
     self.currentQuestionIndex--;
     self.currentQuestion = self.questionsArray[self.currentQuestionIndex];
     [_questionsBtn setTitle:[NSString stringWithFormat:@"%ld/%lu", (long)(_currentQuestionIndex + 1), (unsigned long)_questionsArray.count] forState:UIControlStateNormal];
-    
     [self.contentSlideView showFromLeft];
+    
+}
+
+-(BOOL) cardShouldSlideOffLeft:(SWCardSlideView *) cardView
+{
+    if (self.currentQuestionIndex == self.questionsArray.count - 1) { // The last question
+        
+        return NO;
+    }else
+    {
+        return YES;
+    }
+}
+-(BOOL) cardShouldSlideOffRight:(SWCardSlideView *) cardView
+{
+    if (self.currentQuestionIndex == 0) { // The first question
+        return NO;
+    }else
+    {
+        return YES;
+    }
 }
 
 #pragma mark About Table View

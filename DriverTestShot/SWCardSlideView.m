@@ -56,15 +56,22 @@
 }
 -(void) slideOffLeft
 {
-    CGFloat endX = -self.superview.frame.size.width;
-    [UIView animateWithDuration:1 animations:^{
-        self.center = CGPointMake(endX, self.center.y);
-    } completion:^(BOOL finished) {
-         self.totalRotateDegrees = 0.0f;
-        if ([self.delegate respondsToSelector:@selector(cardDidSlideOffLeft:)]) {
-            [self.delegate cardDidSlideOffLeft:self];
-        }
-    }];
+    BOOL shouldDo = [self shouldSlideOffLeft];
+    if (shouldDo) {
+        CGFloat endX = -self.superview.frame.size.width;
+        [UIView animateWithDuration:1 animations:^{
+            self.center = CGPointMake(endX, self.center.y);
+        } completion:^(BOOL finished) {
+            self.totalRotateDegrees = 0.0f;
+            if ([self.delegate respondsToSelector:@selector(cardDidSlideOffLeft:)]) {
+                [self.delegate cardDidSlideOffLeft:self];
+            }
+        }];
+    }else
+    {
+        [self cardViewBound];
+    }
+    
 }
 
 -(void) showFromRight
@@ -82,19 +89,29 @@
 }
 -(void) slideOffRight
 {
-    CGFloat endX = self.superview.frame.size.width * 2;
-    [UIView animateWithDuration:1 animations:^{
-        self.center = CGPointMake(endX, self.center.y);
-    } completion:^(BOOL finished) {
-        self.totalRotateDegrees = 0.0f;
-        if ([self.delegate respondsToSelector:@selector(cardDidSLideOffRight:)]) {
-            [self.delegate cardDidSLideOffRight:self];
-        }
-    }];
+    BOOL shouldDo = [self shouldSlideOffRight];
+    if (shouldDo) {
+        CGFloat endX = self.superview.frame.size.width * 2;
+        [UIView animateWithDuration:1 animations:^{
+            self.center = CGPointMake(endX, self.center.y);
+        } completion:^(BOOL finished) {
+            self.totalRotateDegrees = 0.0f;
+            if ([self.delegate respondsToSelector:@selector(cardDidSLideOffRight:)]) {
+                [self.delegate cardDidSLideOffRight:self];
+            }
+        }];
+
+    }else
+    {
+        [self cardViewBound];
+    }
 }
 
 -(void) cardViewBound
 {
+    self.transform = CGAffineTransformMakeRotation(0);
+    self.totalRotateDegrees = 0;
+    
     BOOL cardMoveToRight = NO;
     BOOL cardMoveToLeft = NO;
     
@@ -179,6 +196,7 @@
             CGSize superSize = self.superview.frame.size;
             if (self.center.x > superSize.width - kHorizontalEdgeOffset) {
                 [self slideOffRight];
+                
             }else if((self.center.x - kHorizontalEdgeOffset) < 0.0f){
                 [self slideOffLeft];
             }
@@ -206,9 +224,30 @@
 -(void) handSwipeFrom:(UISwipeGestureRecognizer *) recognizer
 {
     if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft) {
+        
         [self slideOffLeft];
+        
+        
     }else if (recognizer.direction == UISwipeGestureRecognizerDirectionRight){
+        
         [self slideOffRight];
+        
+        
     }
+}
+-(BOOL) shouldSlideOffRight
+{
+    if ([self.delegate respondsToSelector:@selector(cardShouldSlideOffRight:)]) {
+        return [self.delegate cardShouldSlideOffRight:self];
+    }
+    return YES;
+}
+
+-(BOOL) shouldSlideOffLeft
+{
+    if ([self.delegate respondsToSelector:@selector(cardShouldSlideOffLeft:)]) {
+        return [self.delegate cardShouldSlideOffLeft:self];
+    }
+    return YES;
 }
 @end

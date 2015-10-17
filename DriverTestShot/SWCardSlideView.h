@@ -11,16 +11,24 @@
 @class SWCardSlideView;
 @protocol SWCardSlideViewDelegate <NSObject>
 
+@optional
+-(BOOL) cardShouldSlideOffLeft:(SWCardSlideView *) cardView;
 -(void) cardDidSlideOffLeft:(SWCardSlideView *) cardView;
+
+-(BOOL) cardShouldSlideOffRight:(SWCardSlideView *) cardView;
 -(void) cardDidSLideOffRight:(SWCardSlideView *) cardView;
+
 @end
 
 @interface SWCardSlideView : UIView
 @property(nonatomic, weak) id<SWCardSlideViewDelegate> delegate;
+
 
 -(void) showFromLeft;
 -(void) slideOffLeft;
 
 -(void) showFromRight;
 -(void) slideOffRight;
+
+-(void) cardViewBound;
 @end
