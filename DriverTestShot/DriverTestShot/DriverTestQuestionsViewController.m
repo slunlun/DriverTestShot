@@ -36,6 +36,7 @@ static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
 @property(nonatomic) CGRect cellOrgiFrame;
 @property(nonatomic) CGRect cellContentViewOrgiFrame;
 @property(nonatomic, strong) NSIndexPath *currentRightIndex;
+@property(nonatomic, strong) NSArray *coustomLibArray;
 
 
 @end
@@ -141,6 +142,18 @@ static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
     }
 }
 
+-(void) initCustomLib
+{
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context = appDelegate.managedObjectContext;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:COUSTOM_LIB_TAB inManagedObjectContext:context];
+    NSFetchRequest *fetchReq = [[NSFetchRequest alloc] init];
+
+    fetchReq.entity = entity;
+    _coustomLibArray = [context executeFetchRequest:fetchReq error:nil];
+    
+}
+
 -(void) layoutNavigationBar
 {
     
@@ -195,6 +208,8 @@ static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
     _currentQuestion = newTest;
     [self.questionContentTableView reloadData];
 }
+
+
 
 #pragma mark SWCardSlideViewDelegate
 -(void) cardDidSlideOffLeft:(SWCardSlideView *) cardView

@@ -21,5 +21,6 @@ typedef NS_ENUM(NSInteger, DriverTestType) {
 
 // Core Data Table Name
 #define TEST_ONE_QUESTION_TAB @"DriverTestLibOne"
+#define COUSTOM_LIB_TAB @"CustomLib"
 #define TEST_FOUR_QUESTION_TAB @""
 #endif
