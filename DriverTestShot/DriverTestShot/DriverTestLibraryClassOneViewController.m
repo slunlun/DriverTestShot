@@ -124,10 +124,20 @@ static NSString *CELL_IDENTITY = @"cellIdentify";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"Now select %@", indexPath);
-    if ([self.delegate respondsToSelector:@selector(DriverTestView:shouldShowViewController:)]) {
-        DriverTestQuestionsViewController *vc = [[DriverTestQuestionsViewController alloc] initWithTestType:TEST_ONE_NORMAL];
-        [self.delegate DriverTestView:self shouldShowViewController:vc];
-        
+    if (indexPath.section == 1) {
+        if ([self.delegate respondsToSelector:@selector(DriverTestView:shouldShowViewController:)]) {
+            DriverTestQuestionsViewController *vc = [[DriverTestQuestionsViewController alloc] initWithTestType:TEST_CUSTOM];
+            [self.delegate DriverTestView:self shouldShowViewController:vc];
+            
+        }
+    }else
+    {
+        if ([self.delegate respondsToSelector:@selector(DriverTestView:shouldShowViewController:)]) {
+            DriverTestQuestionsViewController *vc = [[DriverTestQuestionsViewController alloc] initWithTestType:TEST_ONE_NORMAL];
+            [self.delegate DriverTestView:self shouldShowViewController:vc];
+            
+        }
     }
+    
 }
 @end

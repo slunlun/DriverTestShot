@@ -13,6 +13,7 @@
 #import "DriverTestLibFour.h"
 #import "DriverTestLib.h"
 #import "SWCardSlideView.h"
+#import "CustomLib.h"
 
 #define CARD_LEFT_RIGHT_MARGIN 10
 #define CARD_TOP_MARGIN 70
@@ -36,7 +37,7 @@ static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
 @property(nonatomic) CGRect cellOrgiFrame;
 @property(nonatomic) CGRect cellContentViewOrgiFrame;
 @property(nonatomic, strong) NSIndexPath *currentRightIndex;
-@property(nonatomic, strong) NSArray *coustomLibArray;
+@property(nonatomic, strong) NSArray *customLibArray;
 
 
 @end
@@ -64,6 +65,7 @@ static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
    // _questionContentTableView = [UITableView alloc] init
     [self initTestLibData:_testType];
     [self initContentSlideView];
+    [self initCustomLib];
     [self layoutNavigationBar];
     
     // In ios7 viewcontroller will adjust the top space of scrollview controllers, in case have space to show navigationbar.
@@ -128,7 +130,7 @@ static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
             NSFetchRequest *fetchReq = [[NSFetchRequest alloc] init];
             NSEntityDescription *entity = [NSEntityDescription entityForName:TEST_ONE_QUESTION_TAB inManagedObjectContext:context];
             fetchReq.entity = entity;
-            NSError *error = [[NSError alloc] init];
+            NSError *error = nil;
             _questionsArray = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchReq error:&error]];
             _currentQuestion = [_questionsArray firstObject];
             if (error) {
@@ -150,7 +152,24 @@ static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
     NSFetchRequest *fetchReq = [[NSFetchRequest alloc] init];
 
     fetchReq.entity = entity;
-    _coustomLibArray = [context executeFetchRequest:fetchReq error:nil];
+    _customLibArray = [context executeFetchRequest:fetchReq error:nil];
+    if (_customLibArray.count == 0) {
+        CustomLib *lib = [NSEntityDescription insertNewObjectForEntityForName:COUSTOM_LIB_TAB inManagedObjectContext:context];
+        lib.name = COUSTOM_LIB_NAME;
+        [appDelegate saveContext];
+        _customLibArray = [context executeFetchRequest:fetchReq error:nil];
+    }
+    
+    if (self.testType == TEST_CUSTOM) {
+        CustomLib *lib = [_customLibArray firstObject];
+        _questionsArray = [NSMutableArray arrayWithArray:[lib.libOneQuestions allObjects]];
+        NSArray *libFourQuestions = [lib.libFourQuestions allObjects];
+        for(DriverTestLibFour *libFourQuestion in libFourQuestions)
+        {
+            [_questionsArray addObject:libFourQuestion];
+        }
+        _currentQuestion = [_questionsArray firstObject];
+    }
     
 }
 
@@ -188,25 +207,63 @@ static NSString *CELL_IDENTITY_ANSWER_ITEM = @"CELL_IDENTITY_ANSWER_ITEM";
     NSArray *barBtnItemArray = @[btnMakrQuestion, btnQuestionNum];
     self.navigationItem.rightBarButtonItems = barBtnItemArray;
 }
-
+#pragma mark Navigation bar item
 -(void) markQuestion:(UIButton *) btnItem
 {
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    CustomLib *lib = [self.customLibArray firstObject];
     if (self.currentQuestion.ownCustomLib) {
         // do delete from mark
+        if ([self.currentQuestion isKindOfClass:[DriverTestLibOne class]]) {
+            [lib removeLibOneQuestionsObject:(DriverTestLibOne *)self.currentQuestion];
+            if (lib.libOneQuestions.count == 0) {
+                NSLog(@"Count is 0");
+                lib.libOneQuestions = nil;
+            }
+            self.currentQuestion.ownCustomLib = nil;
+            [appDelegate saveContext];
+        }else if([self.currentQuestion isKindOfClass:[DriverTestLibFour class]])
+        {
+            
+        }
+      
         [_markBtn setImage:[UIImage imageNamed:@"PinNot"] forState:UIControlStateNormal];
         
     }else
     {
+        if ([self.currentQuestion isKindOfClass:[DriverTestLibOne class]]) {
+            [lib addLibOneQuestionsObject:(DriverTestLibOne *)self.currentQuestion];
+            self.currentQuestion.ownCustomLib = lib;
+            [appDelegate saveContext];
+        }else if([self.currentQuestion isKindOfClass:[DriverTestLibFour class]])
+        {
+            
+        }
         [self.markBtn setImage:[UIImage imageNamed:@"Pin"] forState:UIControlStateNormal];
         
     }
     
 }
+#pragma mark Update UI
+-(void) updateMarkButton
+{
+    if (self.currentQuestion.ownCustomLib) {
+        
+        [self.markBtn setImage:[UIImage imageNamed:@"Pin"] forState:UIControlStateNormal];
+
+    }else
+    {
+        [self.markBtn setImage:[UIImage imageNamed:@"PinNot"] forState:UIControlStateNormal];
+
+    }
+}
 #pragma mark SETTER/GETTER
 -(void) setCurrentQuestion:(DriverTestLib *) newTest
 {
     _currentQuestion = newTest;
+    [self updateMarkButton];
     [self.questionContentTableView reloadData];
+    
 }
 
 
